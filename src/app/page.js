@@ -10,7 +10,6 @@ const initialProducts = [
   { id: 'BD-001', category: 'board', name: 'Karangan Bunga Papan Standard', price: 300000, desc: 'Papan ucapan selamat/duka cita ukuran 1.2m x 2m.', img: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=500' }
 ];
 
-// Variants untuk Stagger Animation
 const containerStagger = {
   hidden: { opacity: 0 },
   show: {
@@ -24,7 +23,6 @@ const itemFadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
 };
 
-// Variant untuk Clip Path Image Reveal
 const clipReveal = {
   hidden: { clipPath: 'inset(100% 0% 0% 0%)', opacity: 0 },
   show: { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1, transition: { duration: 0.9, ease: [0.25, 1, 0.5, 1] } }
@@ -84,12 +82,16 @@ export default function Home() {
   return (
     <main className="bg-[#0A0A0A] text-gray-100 min-h-screen font-sans selection:bg-[#D91A2A] selection:text-white scroll-smooth overflow-x-hidden">
       
-      {/* 1. HEADER & NAVBAR */}
+      {/* 1. HEADER & NAVBAR (DENGAN LOGO GAMBAR BARU) */}
       <header className="fixed top-0 w-full z-40 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full border border-[#D91A2A]/40 flex items-center justify-center bg-black">
-              <span className="text-[#D91A2A] font-bold text-xl">A</span>
+            <div className="w-10 h-10 rounded-full border border-[#D91A2A]/40 overflow-hidden bg-black flex items-center justify-center">
+              <img 
+                src="/logo.jpg" 
+                alt="AWINA Group Logo" 
+                className="w-full h-full object-cover" 
+              />
             </div>
             <span className="text-xl font-bold tracking-widest text-white uppercase">
               AWINA <span className="text-[#D91A2A]">Group</span>
@@ -116,11 +118,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 2. HERO SECTION - TEXT REVEAL + FADE IN + CLIP PATH REVEAL */}
+      {/* 2. HERO SECTION */}
       <section id="home" className="pt-36 pb-20 px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            {/* Fade In Badge */}
             <motion.div 
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -129,7 +130,6 @@ export default function Home() {
               <span className="w-2 h-2 rounded-full bg-[#D91A2A] animate-pulse"></span> Sumbawa & Sumbawa Barat
             </motion.div>
 
-            {/* Text Reveal Effect */}
             <div className="overflow-hidden mb-6">
               <motion.h1 
                 initial={{ y: '100%', opacity: 0 }}
@@ -140,7 +140,6 @@ export default function Home() {
               </motion.h1>
             </div>
 
-            {/* Fade In Subtitle */}
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -149,7 +148,6 @@ export default function Home() {
               Layanan premium floral, studio foto, seserahan, & karangan bunga terpercaya yang melayani seluruh wilayah Kabupaten Sumbawa & Sumbawa Barat sejak 2016.
             </motion.p>
 
-            {/* CTA Hover Scale */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -170,7 +168,6 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* HERO IMAGE GRID - CLIP PATH REVEAL */}
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
               <motion.div variants={clipReveal} initial="hidden" animate="show" className="h-48 rounded-2xl overflow-hidden relative border border-gray-800 group">
@@ -200,7 +197,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. ABOUT SECTION - SCROLL TRIGGERED FADE UP */}
+      {/* 3. ABOUT SECTION */}
       <motion.section 
         id="about" 
         initial={{ opacity: 0, y: 50 }}
@@ -241,14 +238,13 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* 4. KARYA & LAYANAN - STAGGER ANIMATION */}
+      {/* 4. KARYA & LAYANAN */}
       <section id="services" className="py-20 px-6 max-w-7xl mx-auto border-t border-gray-900">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-3">The Craft & Services</h2>
           <p className="text-3xl md:text-4xl font-bold text-white">Karya & Layanan Kami</p>
         </div>
 
-        {/* Stagger Container */}
         <motion.div 
           variants={containerStagger}
           initial="hidden"
@@ -286,7 +282,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 5. KATALOG PILIHAN - FADE TRANSITION ON TAB CHANGE */}
+      {/* 5. KATALOG PILIHAN */}
       <section id="catalog" className="py-20 px-6 max-w-7xl mx-auto border-t border-gray-900">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div>
@@ -307,7 +303,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* AnimatePresence for Page/Filter Transition */}
         <AnimatePresence mode="wait">
           <motion.div 
             key={activeTab}
@@ -343,13 +338,19 @@ export default function Home() {
         </AnimatePresence>
       </section>
 
-      {/* 6. FOOTER */}
+      {/* 6. FOOTER (DENGAN LOGO GAMBAR BARU) */}
       <footer id="contact" className="bg-black py-12 px-6 border-t border-gray-900 text-gray-400 text-sm">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-[#D91A2A] font-bold text-xl">A</span>
-              <span className="text-white font-bold text-lg">AWINA Group</span>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full border border-[#D91A2A]/40 overflow-hidden bg-black flex items-center justify-center">
+                <img 
+                  src="/logo.jpg" 
+                  alt="AWINA Group Logo" 
+                  className="w-full h-full object-cover" 
+                />
+              </div>
+              <span className="text-white font-bold text-lg uppercase tracking-wider">AWINA Group</span>
             </div>
             <p className="text-xs text-gray-500">Layanan premium floral, studio foto, seserahan, & karangan bunga se-Sumbawa sejak 2016.</p>
           </div>
@@ -380,7 +381,7 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* 7. MODAL CART DRAWER WITH SMOOTH TRANSITION */}
+      {/* 7. MODAL CART DRAWER */}
       <AnimatePresence>
         {isCartOpen && (
           <motion.div 
