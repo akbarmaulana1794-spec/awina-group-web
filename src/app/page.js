@@ -61,7 +61,7 @@ export default function Home() {
     : initialProducts.filter(p => p.category === activeTab);
 
   return (
-    <main className="bg-[#0A0A0A] text-gray-100 min-h-screen font-sans selection:bg-[#D91A2A] selection:text-white">
+    <main className="bg-[#0A0A0A] text-gray-100 min-h-screen font-sans selection:bg-[#D91A2A] selection:text-white scroll-smooth">
       
       {/* 1. HEADER & NAVBAR */}
       <header className="fixed top-0 w-full z-40 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-gray-800">
@@ -80,7 +80,6 @@ export default function Home() {
             <a href="#about" className="hover:text-[#D91A2A] transition">About</a>
             <a href="#services" className="hover:text-[#D91A2A] transition">Services</a>
             <a href="#catalog" className="hover:text-[#D91A2A] transition">Catalog</a>
-            <a href="#coverage" className="hover:text-[#D91A2A] transition">Jangkauan</a>
             <a href="#contact" className="hover:text-[#D91A2A] transition">Contact</a>
           </nav>
 
@@ -147,47 +146,80 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. KARYA & LAYANAN KAMI */}
-      <section id="services" className="py-20 px-6 bg-[#050505] border-t border-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-3">The Craft & Services</h2>
-            <p className="text-3xl md:text-4xl font-bold text-white">Karya & Layanan Kami</p>
+      {/* 3. ABOUT SECTION (TENTANG KAMI & STATISTIK) */}
+      <section id="about" className="py-20 px-6 bg-[#050505] border-t border-gray-900">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-3">Tentang AWINA Group</h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Dedikasi Seni & Kualitas Terbaik Sejak 2016</h3>
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+              AWINA Group menghadirkan ekosistem layanan kreatif terlengkap di Sumbawa & Sumbawa Barat. Mulai dari rangkaian bunga mawar segar, foto studio berstandar sinematik, hantaran seserahan akrilik mewah, hingga papan ucapan karangan bunga resmi.
+            </p>
+            <div className="grid grid-cols-3 gap-6 pt-4 border-t border-gray-800">
+              <div>
+                <p className="text-3xl font-extrabold text-[#D91A2A]">10k+</p>
+                <p className="text-gray-400 text-xs mt-1">Klien Puas</p>
+              </div>
+              <div>
+                <p className="text-3xl font-extrabold text-[#D91A2A]">24/7</p>
+                <p className="text-gray-400 text-xs mt-1">Pengiriman</p>
+              </div>
+              <div>
+                <p className="text-3xl font-extrabold text-[#D91A2A]">50+</p>
+                <p className="text-gray-400 text-xs mt-1">Mitra Kota</p>
+              </div>
+            </div>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
-              <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">💐</div>
-              <h3 className="text-xl font-bold text-white mb-2">AWINA Florist</h3>
-              <p className="text-gray-400 text-sm mb-6">Buket bunga segar & bunga meja dengan estetika seni tinggi.</p>
-              <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
-            </div>
-
-            <div className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
-              <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">📷</div>
-              <h3 className="text-xl font-bold text-white mb-2">AWINA Photo Studio</h3>
-              <p className="text-gray-400 text-sm mb-6">Sesi foto personal, prewedding, & keluarga berstandar sinematik.</p>
-              <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
-            </div>
-
-            <div className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
-              <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">🎁</div>
-              <h3 className="text-xl font-bold text-white mb-2">AWINA Seserahan</h3>
-              <p className="text-gray-400 text-sm mb-6">Hantaran & mahar pernikahan eksklusif hias akrilik.</p>
-              <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
-            </div>
-
-            <div className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
-              <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">🎗️</div>
-              <h3 className="text-xl font-bold text-white mb-2">AWINA Board & Tribute</h3>
-              <p className="text-gray-400 text-sm mb-6">Karangan bunga & papan ucapan premium untuk segala momen.</p>
-              <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
-            </div>
+          <div className="bg-[#141414] p-8 rounded-2xl border border-gray-800 text-center relative overflow-hidden group">
+            <div className="absolute -top-12 -right-12 w-40 h-40 bg-[#D91A2A]/10 rounded-full blur-2xl"></div>
+            <p className="text-gray-400 text-xs uppercase tracking-widest mb-3">Sejak 2016</p>
+            <p className="text-white text-2xl font-bold mb-4">Mendampingi Setiap Momen Spesial Masyarakat Sumbawa & KSB</p>
+            <p className="text-gray-400 text-xs leading-relaxed">
+              Kami percaya setiap perayaan layak mendapatkan sentuhan terbaik. Komitmen kami adalah memberikan hasil karya yang estetik, tepat waktu, dan berkesan.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* 4. KATALOG PILIHAN */}
+      {/* 4. KARYA & LAYANAN KAMI */}
+      <section id="services" className="py-20 px-6 max-w-7xl mx-auto border-t border-gray-900">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-3">The Craft & Services</h2>
+          <p className="text-3xl md:text-4xl font-bold text-white">Karya & Layanan Kami</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
+            <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">💐</div>
+            <h3 className="text-xl font-bold text-white mb-2">AWINA Florist</h3>
+            <p className="text-gray-400 text-sm mb-6">Buket bunga segar & bunga meja dengan estetika seni tinggi.</p>
+            <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+          </div>
+
+          <div className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
+            <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">📷</div>
+            <h3 className="text-xl font-bold text-white mb-2">AWINA Photo Studio</h3>
+            <p className="text-gray-400 text-sm mb-6">Sesi foto personal, prewedding, & keluarga berstandar sinematik.</p>
+            <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+          </div>
+
+          <div className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
+            <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">🎁</div>
+            <h3 className="text-xl font-bold text-white mb-2">AWINA Seserahan</h3>
+            <p className="text-gray-400 text-sm mb-6">Hantaran & mahar pernikahan eksklusif hias akrilik.</p>
+            <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+          </div>
+
+          <div className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
+            <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">🎗️</div>
+            <h3 className="text-xl font-bold text-white mb-2">AWINA Board & Tribute</h3>
+            <p className="text-gray-400 text-sm mb-6">Karangan bunga & papan ucapan premium untuk segala momen.</p>
+            <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. KATALOG PILIHAN */}
       <section id="catalog" className="py-20 px-6 max-w-7xl mx-auto border-t border-gray-900">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div>
@@ -233,37 +265,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. JANGKAUAN & STATISTIK */}
-      <section id="coverage" className="py-20 px-6 bg-[#050505] border-t border-gray-900">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Jangkauan Sumbawa & Statistik</h2>
-            <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-              Melayani pengiriman express karangan bunga, hantaran, serta sesi studio foto untuk seluruh wilayah Kabupaten Sumbawa & Sumbawa Barat.
-            </p>
-            <div className="grid grid-cols-3 gap-6">
-              <div>
-                <p className="text-3xl font-extrabold text-[#D91A2A]">10k+</p>
-                <p className="text-gray-400 text-xs mt-1">Klien Puas</p>
-              </div>
-              <div>
-                <p className="text-3xl font-extrabold text-[#D91A2A]">24/7</p>
-                <p className="text-gray-400 text-xs mt-1">Pengiriman</p>
-              </div>
-              <div>
-                <p className="text-3xl font-extrabold text-[#D91A2A]">50+</p>
-                <p className="text-gray-400 text-xs mt-1">Mitra Kota</p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-[#141414] p-8 rounded-2xl border border-gray-800 text-center">
-            <p className="text-gray-400 text-xs uppercase tracking-widest mb-2">Sejak 2016</p>
-            <p className="text-white text-2xl font-bold">Mendampingi Momen Spesial Masyarakat Sumbawa & KSB</p>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. FOOTER */}
+      {/* 6. FOOTER / CONTACT */}
       <footer id="contact" className="bg-black py-12 px-6 border-t border-gray-900 text-gray-400 text-sm">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
           <div>
@@ -276,9 +278,10 @@ export default function Home() {
           <div>
             <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider">Tautan Cepat</h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#home" className="hover:text-white">Beranda</a></li>
-              <li><a href="#services" className="hover:text-white">Layanan</a></li>
-              <li><a href="#catalog" className="hover:text-white">Katalog</a></li>
+              <li><a href="#home" className="hover:text-white">Home</a></li>
+              <li><a href="#about" className="hover:text-white">About</a></li>
+              <li><a href="#services" className="hover:text-white">Services</a></li>
+              <li><a href="#catalog" className="hover:text-white">Catalog</a></li>
             </ul>
           </div>
           <div>
