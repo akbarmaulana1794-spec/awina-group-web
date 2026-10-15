@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* Offset agar judul section tidak tertutup Navbar */
+}
+
 body {
-  background-color: #0A0A0A;
-  color: #F3F4F6;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #0a0a0a;
+  color: #f3f4f6;
 }
