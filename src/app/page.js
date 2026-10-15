@@ -34,6 +34,7 @@ export default function Home() {
   const [selectedArea, setSelectedArea] = useState('0');
   const [notes, setNotes] = useState('');
   const [activeTab, setActiveTab] = useState('all');
+  const [activeNav, setActiveNav] = useState('home');
 
   const addToCart = (product) => {
     setCart((prev) => {
@@ -52,6 +53,24 @@ export default function Home() {
         .map((item) => (item.id === id ? { ...item, qty: item.qty + delta } : item))
         .filter((item) => item.qty > 0)
     );
+  };
+
+  const scrollToSection = (e, targetId) => {
+    e.preventDefault();
+    setActiveNav(targetId);
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
@@ -79,10 +98,18 @@ export default function Home() {
     ? initialProducts 
     : initialProducts.filter(p => p.category === activeTab);
 
+  const navLinks = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'services', label: 'Services' },
+    { id: 'catalog', label: 'Catalog' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
   return (
     <main className="bg-[#0A0A0A] text-gray-100 min-h-screen font-sans selection:bg-[#D91A2A] selection:text-white scroll-smooth overflow-x-hidden">
       
-      {/* 1. HEADER & NAVBAR (DENGAN LOGO GAMBAR BARU) */}
+      {/* 1. HEADER & NAVBAR WITH MOTION NAVIGATION */}
       <header className="fixed top-0 w-full z-40 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -99,11 +126,24 @@ export default function Home() {
           </div>
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-            <a href="#home" className="hover:text-[#D91A2A] transition">Home</a>
-            <a href="#about" className="hover:text-[#D91A2A] transition">About</a>
-            <a href="#services" className="hover:text-[#D91A2A] transition">Services</a>
-            <a href="#catalog" className="hover:text-[#D91A2A] transition">Catalog</a>
-            <a href="#contact" className="hover:text-[#D91A2A] transition">Contact</a>
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={(e) => scrollToSection(e, link.id)}
+                className={`relative py-1 transition ${
+                  activeNav === link.id ? 'text-[#D91A2A] font-semibold' : 'hover:text-white'
+                }`}>
+                {link.label}
+                {activeNav === link.id && (
+                  <motion.div
+                    layoutId="activeNavIndicator"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#D91A2A] rounded-full"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </a>
+            ))}
           </nav>
 
           <div className="flex items-center gap-3">
@@ -156,7 +196,9 @@ export default function Home() {
               <motion.a 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="#catalog" className="bg-[#D91A2A] hover:bg-red-700 text-white px-7 py-3.5 rounded-xl font-semibold transition shadow-lg shadow-[#D91A2A]/25">
+                href="#catalog" 
+                onClick={(e) => scrollToSection(e, 'catalog')}
+                className="bg-[#D91A2A] hover:bg-red-700 text-white px-7 py-3.5 rounded-xl font-semibold transition shadow-lg shadow-[#D91A2A]/25">
                 Jelajahi Layanan
               </motion.a>
               <motion.a 
@@ -256,28 +298,28 @@ export default function Home() {
             <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">💐</div>
             <h3 className="text-xl font-bold text-white mb-2">AWINA Florist</h3>
             <p className="text-gray-400 text-sm mb-6">Buket bunga segar & bunga meja dengan estetika seni tinggi.</p>
-            <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
           </motion.div>
 
           <motion.div variants={itemFadeUp} className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
             <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">📷</div>
             <h3 className="text-xl font-bold text-white mb-2">AWINA Photo Studio</h3>
             <p className="text-gray-400 text-sm mb-6">Sesi foto personal, prewedding, & keluarga berstandar sinematik.</p>
-            <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
           </motion.div>
 
           <motion.div variants={itemFadeUp} className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
             <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">🎁</div>
             <h3 className="text-xl font-bold text-white mb-2">AWINA Seserahan</h3>
             <p className="text-gray-400 text-sm mb-6">Hantaran & mahar pernikahan eksklusif hias akrilik.</p>
-            <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
           </motion.div>
 
           <motion.div variants={itemFadeUp} className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
             <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">🎗️</div>
             <h3 className="text-xl font-bold text-white mb-2">AWINA Board & Tribute</h3>
             <p className="text-gray-400 text-sm mb-6">Karangan bunga & papan ucapan premium untuk segala momen.</p>
-            <a href="#catalog" className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
           </motion.div>
         </motion.div>
       </section>
@@ -338,7 +380,7 @@ export default function Home() {
         </AnimatePresence>
       </section>
 
-      {/* 6. FOOTER (DENGAN LOGO GAMBAR BARU) */}
+      {/* 6. FOOTER / CONTACT */}
       <footer id="contact" className="bg-black py-12 px-6 border-t border-gray-900 text-gray-400 text-sm">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
           <div>
@@ -357,10 +399,10 @@ export default function Home() {
           <div>
             <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider">Tautan Cepat</h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#home" className="hover:text-white">Home</a></li>
-              <li><a href="#about" className="hover:text-white">About</a></li>
-              <li><a href="#services" className="hover:text-white">Services</a></li>
-              <li><a href="#catalog" className="hover:text-white">Catalog</a></li>
+              <li><a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="hover:text-white">Home</a></li>
+              <li><a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-white">About</a></li>
+              <li><a href="#services" onClick={(e) => scrollToSection(e, 'services')} className="hover:text-white">Services</a></li>
+              <li><a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="hover:text-white">Catalog</a></li>
             </ul>
           </div>
           <div>
