@@ -112,16 +112,27 @@ export default function Home() {
       {/* 1. HEADER & NAVBAR */}
       <header className="fixed top-0 w-full z-40 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          
+          {/* BRANDING DENGAN LOGO "A" MERAH KHAS */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full border border-[#D91A2A]/40 overflow-hidden bg-black flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full border border-[#D91A2A]/40 overflow-hidden bg-black flex items-center justify-center shadow-md shadow-[#D91A2A]/20">
               <img 
                 src="/logo.jpg" 
                 alt="AWINA Group Logo" 
                 className="w-full h-full object-cover" 
               />
             </div>
-            <span className="text-xl font-bold tracking-widest text-white uppercase">
-              AWINA <span className="text-[#D91A2A]">Group</span>
+            
+            {/* TYPOGRAPHY CUSTOM "A" MERAH KREATIF */}
+            <span className="text-xl font-extrabold tracking-widest text-white uppercase flex items-center select-none">
+              {/* Simbol "A" Merah Dari Logo */}
+              <span className="inline-block h-[22px] w-[22px] mr-1 text-[#D91A2A] translate-y-[-1.5px] scale-[1.15]">
+                <svg viewBox="0 0 100 100" className="w-full h-full" fill="currentColor">
+                  {/* Replika Simbol Segitiga A Dari Logo AWINA */}
+                  <polygon points="50,15 15,85 30,85 50,45 70,85 85,85" />
+                </svg>
+              </span>
+              WINA <span className="text-[#D91A2A] ml-2">Group</span>
             </span>
           </div>
 
@@ -167,7 +178,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D91A2A]/10 border border-[#D91A2A]/30 text-[#D91A2A] text-xs font-semibold uppercase tracking-wider mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#D91A2A] animate-pulse"></span> Sumbawa & Sumbawa Barat
+              <span className="w-2 h-2 rounded-full bg-[#D91A2A] animate-pulse"></span> Sumbawa
             </motion.div>
 
             <div className="overflow-hidden mb-6">
@@ -185,7 +196,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-gray-400 text-lg mb-8 leading-relaxed">
-              Layanan premium floral, studio foto, seserahan, & karangan bunga terpercaya yang melayani seluruh wilayah Kabupaten Sumbawa & Sumbawa Barat sejak 2016.
+              Layanan premium floral, studio foto, seserahan, & karangan bunga terpercaya yang melayani seluruh wilayah Kabupaten Sumbawa sejak 2016.
             </motion.p>
 
             <motion.div 
@@ -252,7 +263,7 @@ export default function Home() {
             <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-3">Tentang AWINA Group</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Dedikasi Seni & Kualitas Terbaik Sejak 2016</h3>
             <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-              AWINA Group menghadirkan ekosistem layanan kreatif terlengkap di Sumbawa & Sumbawa Barat. Mulai dari rangkaian bunga mawar segar, foto studio berstandar sinematik, hantaran seserahan akrilik mewah, hingga papan ucapan karangan bunga resmi.
+              AWINA Group menghadirkan ekosistem layanan kreatif terlengkap di Sumbawa. Mulai dari rangkaian bunga mawar segar, foto studio berstandar sinematik, hantaran seserahan akrilik mewah, hingga papan ucapan karangan bunga resmi.
             </p>
             <div className="grid grid-cols-3 gap-6 pt-4 border-t border-gray-800">
               <div>
@@ -272,7 +283,7 @@ export default function Home() {
           <div className="bg-[#141414] p-8 rounded-2xl border border-gray-800 text-center relative overflow-hidden group">
             <div className="absolute -top-12 -right-12 w-40 h-40 bg-[#D91A2A]/10 rounded-full blur-2xl"></div>
             <p className="text-gray-400 text-xs uppercase tracking-widest mb-3">Sejak 2016</p>
-            <p className="text-white text-2xl font-bold mb-4">Mendampingi Setiap Momen Spesial Masyarakat Sumbawa & KSB</p>
+            <p className="text-white text-2xl font-bold mb-4">Mendampingi Setiap Momen Spesial Masyarakat Sumbawa</p>
             <p className="text-gray-400 text-xs leading-relaxed">
               Kami percaya setiap perayaan layak mendapatkan sentuhan terbaik. Komitmen kami adalah memberikan hasil karya yang estetik, tepat waktu, dan berkesan.
             </p>
@@ -380,7 +391,7 @@ export default function Home() {
         </AnimatePresence>
       </section>
 
-      {/* 6. FOOTER / CONTACT */}
+      {/* 6. FOOTER */}
       <footer id="contact" className="bg-black py-12 px-6 border-t border-gray-900 text-gray-400 text-sm">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
           <div>
@@ -392,7 +403,16 @@ export default function Home() {
                   className="w-full h-full object-cover" 
                 />
               </div>
-              <span className="text-white font-bold text-lg uppercase tracking-wider">AWINA Group</span>
+              
+              {/* BRANDING FOOTER DENGAN "A" MERAH KHAS */}
+              <span className="text-white font-extrabold text-lg uppercase tracking-wider flex items-center select-none">
+                <span className="inline-block h-[18px] w-[18px] mr-1 text-[#D91A2A]">
+                  <svg viewBox="0 0 100 100" className="w-full h-full" fill="currentColor">
+                    <polygon points="50,15 15,85 30,85 50,45 70,85 85,85" />
+                  </svg>
+                </span>
+                WINA <span className="text-[#D91A2A] ml-1.5 font-bold">Group</span>
+              </span>
             </div>
             <p className="text-xs text-gray-500">Layanan premium floral, studio foto, seserahan, & karangan bunga se-Sumbawa sejak 2016.</p>
           </div>
