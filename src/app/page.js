@@ -73,22 +73,33 @@ export default function Home() {
     }
   };
 
+  // Cek apakah seluruh item di keranjang hanya produk studio foto
+  const isOnlyStudioService = cart.length > 0 && cart.every((item) => item.category === 'studio');
+
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const ongkir = parseInt(selectedArea) || 0;
+  const ongkir = isOnlyStudioService ? 0 : parseInt(selectedArea) || 0;
   const total = subtotal + ongkir;
 
   const handleCheckout = () => {
     if (cart.length === 0) return alert('Keranjang belanja masih kosong!');
-    if (selectedArea === '0') return alert('Silakan pilih wilayah pengiriman terlebih dahulu!');
+    if (!isOnlyStudioService && selectedArea === '0') {
+      return alert('Silakan pilih wilayah pengiriman terlebih dahulu!');
+    }
 
     let msg = `Halo *AWINA Group*, saya mau pesan produk:\n\n`;
     cart.forEach((item, i) => {
       msg += `${i + 1}. *${item.name}* (${item.qty}x) = Rp ${(item.price * item.qty).toLocaleString('id-ID')}\n`;
     });
-    msg += `\n📍 *Lokasi:* Sumbawa Besar`;
+
+    if (isOnlyStudioService) {
+      msg += `\n📍 *Metode:* Sesi Foto di Studio (Bebas Ongkir)`;
+    } else {
+      msg += `\n📍 *Lokasi:* Sumbawa Besar`;
+    }
+
     msg += `\n📝 *Catatan:* ${notes || 'Tidak ada'}`;
     msg += `\n💰 *Subtotal:* Rp ${subtotal.toLocaleString('id-ID')}`;
-    msg += `\n🚚 *Ongkir:* Rp ${ongkir.toLocaleString('id-ID')}`;
+    msg += `\n🚚 *Ongkir:* ${isOnlyStudioService ? 'Rp 0 (Sesi Foto Studio)' : `Rp ${ongkir.toLocaleString('id-ID')}`}`;
     msg += `\n🔥 *TOTAL:* *Rp ${total.toLocaleString('id-ID')}*`;
 
     window.open(`https://wa.me/6281916801907?text=${encodeURIComponent(msg)}`, '_blank');
@@ -113,7 +124,6 @@ export default function Home() {
       <header className="fixed top-0 w-full z-40 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           
-          {/* BRANDING NAVBAR: UKURAN A MERAH SEMULA & SPASI PAS */}
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full border border-[#D91A2A]/40 overflow-hidden bg-black flex items-center justify-center shadow-md shadow-[#D91A2A]/20">
               <img 
@@ -402,7 +412,6 @@ export default function Home() {
                 />
               </div>
               
-              {/* BRANDING FOOTER: DISAMAKAN UKURAN A MERAH NAVBAR DENGAN SPASI PAS */}
               <span className="text-white font-extrabold text-lg uppercase tracking-wider flex items-center select-none">
                 <span className="inline-block h-[22px] w-[22px] text-[#D91A2A] translate-y-[-1.5px] scale-[1.15]">
                   <svg viewBox="0 0 100 100" className="w-full h-full" fill="currentColor">
@@ -463,82 +472,4 @@ export default function Home() {
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-end">
-            <motion.div 
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="bg-[#141414] w-full max-w-md h-full p-6 flex flex-col justify-between border-l border-gray-800">
-              <div>
-                <div className="flex items-center justify-between pb-4 border-b border-gray-800">
-                  <h3 className="text-xl font-bold text-white">🛒 Keranjang Belanja</h3>
-                  <button onClick={() => setIsCartOpen(false)} className="text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
-                </div>
-
-                <div className="py-4 space-y-3 max-h-[40vh] overflow-y-auto">
-                  {cart.length === 0 ? (
-                    <p className="text-gray-500 text-center py-6 text-sm">Keranjang Anda masih kosong.</p>
-                  ) : (
-                    cart.map((item) => (
-                      <div key={item.id} className="flex items-center justify-between bg-[#1F1F1F] p-3 rounded-xl">
-                        <div>
-                          <p className="text-white text-sm font-semibold">{item.name}</p>
-                          <p className="text-[#D91A2A] text-xs font-bold">Rp {(item.price * item.qty).toLocaleString('id-ID')}</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <button onClick={() => changeQty(item.id, -1)} className="w-6 h-6 bg-gray-800 text-white rounded font-bold text-xs">-</button>
-                          <span className="text-white text-xs">{item.qty}</span>
-                          <button onClick={() => changeQty(item.id, 1)} className="w-6 h-6 bg-gray-800 text-white rounded font-bold text-xs">+</button>
-                        </div>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-
-              <div className="border-t border-gray-800 pt-4 space-y-4">
-                <div>
-                  <label className="block text-xs text-gray-400 mb-1">Wilayah Tujuan</label>
-                  <select 
-                    value={selectedArea} 
-                    onChange={(e) => setSelectedArea(e.target.value)}
-                    className="w-full bg-[#1F1F1F] border border-gray-700 text-white text-sm rounded-lg p-2.5 outline-none">
-                    <option value="0">Pilih Area...</option>
-                    <option value="25000">Kota Sumbawa Besar (+Rp 25.000)</option>
-                    <option value="50000">Taliwang / KSB (+Rp 50.000)</option>
-                    <option value="75000">Maluk / Sekongkang (+Rp 75.000)</option>
-                  </select>
-                </div>
-
-                <textarea 
-                  value={notes} 
-                  onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Catatan/Ucapan tambahan..." 
-                  className="w-full bg-[#1F1F1F] border border-gray-700 text-white text-sm rounded-lg p-2.5 outline-none" rows="2" />
-
-                <div className="space-y-1 text-sm border-t border-gray-800 pt-3">
-                  <div className="flex justify-between text-gray-400"><span>Subtotal:</span><span>Rp {subtotal.toLocaleString('id-ID')}</span></div>
-                  <div className="flex justify-between text-gray-400"><span>Ongkir:</span><span>Rp {ongkir.toLocaleString('id-ID')}</span></div>
-                  <div className="flex justify-between text-white font-bold text-base pt-2 border-t border-gray-800">
-                    <span>Total:</span><span className="text-[#D91A2A]">Rp {total.toLocaleString('id-ID')}</span>
-                  </div>
-                </div>
-
-                <motion.button 
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={handleCheckout}
-                  className="w-full bg-[#D91A2A] hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition">
-                  Pesan via WhatsApp 💬
-                </motion.button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-    </main>
-  );
-}
+            exit={{ opacity: 0
