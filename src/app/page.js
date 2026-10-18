@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const initialProducts = [
-  { id: 'FL-001', category: 'florist', name: 'Moyo Rose Hand Bouquet', price: 150000, desc: 'Buket bunga mawar segar dipadu dedaunan estetik.', img: 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=500' },
+  { id: 'FL-001', category: 'florist', name: 'Moyo Rose Hand Bouquet', price: 150000, desc: 'Buket bunga mawar segar dipadu dedaunan estetik.', img: '/florist.jpg' },
   { id: 'ST-001', category: 'studio', name: 'Paket Foto Graduation', price: 350000, desc: 'Sesi foto indoor 30 menit, cetak 10R + frame, file HD.', img: '/studio.jpg' },
   { id: 'SE-001', category: 'seserahan', name: 'Sewa & Hias Box Akrilik', price: 75000, desc: 'Sewa baki akrilik bening tebal hias bunga premium.', img: '/seserahan.jpg' },
-  { id: 'BD-001', category: 'board', name: 'Karangan Bunga Papan Standard', price: 300000, desc: 'Papan ucapan selamat/duka cita ukuran 1.2m x 2m.', img: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=500' }
+  { id: 'BD-001', category: 'board', name: 'Karangan Bunga Papan Standard', price: 300000, desc: 'Papan ucapan selamat/duka cita ukuran 1.2m x 2m.', img: '/board.jpg' }
 ];
 
 const containerStagger = {
@@ -231,13 +231,14 @@ export default function Home() {
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
+              {/* AWINA FLORIST */}
               <motion.div variants={clipReveal} initial="hidden" animate="show" className="h-48 rounded-2xl overflow-hidden relative border border-gray-800 group">
-                <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=500" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <img src="/florist.jpg" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 <span className="absolute bottom-3 left-3 text-xs font-semibold text-white">AWINA Florist</span>
               </motion.div>
 
-              {/* AWINA PHOTO STUDIO (MENGGUNAKAN /studio.jpg) */}
+              {/* AWINA PHOTO STUDIO */}
               <motion.div variants={clipReveal} initial="hidden" animate="show" transition={{ delay: 0.2 }} className="h-64 rounded-2xl overflow-hidden relative border border-gray-800 group">
                 <img src="/studio.jpg" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -245,14 +246,16 @@ export default function Home() {
               </motion.div>
             </div>
             <div className="space-y-4 pt-8">
-              {/* AWINA SESERAHAN (MENGGUNAKAN /seserahan.jpg) */}
+              {/* AWINA SESERAHAN */}
               <motion.div variants={clipReveal} initial="hidden" animate="show" transition={{ delay: 0.3 }} className="h-64 rounded-2xl overflow-hidden relative border border-gray-800 group">
                 <img src="/seserahan.jpg" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 <span className="absolute bottom-3 left-3 text-xs font-semibold text-white">AWINA Seserahan</span>
               </motion.div>
+
+              {/* AWINA BOARD & TRIBUTE */}
               <motion.div variants={clipReveal} initial="hidden" animate="show" transition={{ delay: 0.4 }} className="h-48 rounded-2xl overflow-hidden relative border border-gray-800 group">
-                <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=500" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <img src="/board.jpg" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 <span className="absolute bottom-3 left-3 text-xs font-semibold text-white">AWINA Board & Tribute</span>
               </motion.div>
