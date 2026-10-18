@@ -264,7 +264,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. ABOUT SECTION WITH INDONESIA MAP VECTOR & SINGLE PIN SUMBAWA BESAR */}
+      {/* 3. ABOUT SECTION WITH HIGH-QUALITY INDONESIA MAP & GLOWING PIN SUMBAWA BESAR */}
       <motion.section 
         id="about" 
         initial={{ opacity: 0, y: 50 }}
@@ -274,11 +274,11 @@ export default function Home() {
         className="py-20 px-6 bg-[#050505] border-t border-gray-900">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
-          {/* VEKTOR PETA KEPULAUAN INDONESIA MERAH ELEGAN */}
+          {/* PETA INDONESIA VEKTOR DETAIL */}
           <div className="lg:col-span-7 relative bg-[#111111] p-6 md:p-8 rounded-3xl border border-gray-800/80 overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#D91A2A]/10 rounded-full blur-3xl pointer-events-none"></div>
             
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-6">
               <div>
                 <span className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest block mb-1">Jangkauan Layanan Lokal</span>
                 <h4 className="text-xl font-bold text-white">Peta Layanan Kabupaten Sumbawa</h4>
@@ -288,37 +288,31 @@ export default function Home() {
               </span>
             </div>
 
-            {/* SVG VEKTOR PETA INDONESIA PERSIS MOCKUP DENGAN SINGLE PIN SUMBAWA BESAR */}
-            <div className="relative w-full h-64 md:h-80 my-2 flex items-center justify-center">
-              <svg viewBox="0 0 1000 500" className="w-full h-full filter drop-shadow-[0_0_12px_rgba(217,26,42,0.35)]">
-                {/* Sumatera */}
-                <path d="M 80,180 L 140,110 L 220,190 L 260,250 L 220,290 L 160,260 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
-                {/* Jawa */}
-                <path d="M 270,320 L 330,330 L 410,335 L 460,330 L 450,345 L 280,335 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
-                {/* Kalimantan */}
-                <path d="M 290,140 L 350,110 L 420,130 L 430,200 L 380,240 L 320,220 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
-                {/* Sulawesi */}
-                <path d="M 470,160 L 520,150 L 510,190 L 550,210 L 500,220 L 530,260 L 480,240 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
-                {/* Bali & Lombok */}
-                <path d="M 470,330 L 480,330 M 490,330 L 500,330" fill="none" stroke="#D91A2A" strokeWidth="2.5" strokeLinecap="round" className="opacity-80" />
-                {/* Sumbawa, Flores, Timor */}
-                <path d="M 510,330 L 545,328 L 600,325 L 650,330 L 680,340" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
-                {/* Maluku */}
-                <path d="M 600,180 L 630,200 L 610,240 M 650,220 L 670,250" fill="none" stroke="#D91A2A" strokeWidth="2" className="opacity-70" />
-                {/* Papua */}
-                <path d="M 720,200 L 780,180 L 880,210 L 890,310 L 820,310 L 780,260 L 730,240 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
+            {/* CONTAINER PETA DENGAN PIN ANIMASI GLOWING */}
+            <div className="relative w-full aspect-[2/1] my-4 flex items-center justify-center bg-black/40 rounded-2xl border border-gray-900/60 p-4 overflow-hidden">
+              {/* Gambar Vektor Peta Indonesia Presisi & Smooth */}
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/a/bb/Indonesia_location_map.svg" 
+                alt="Peta Indonesia"
+                className="w-full h-full object-contain filter invert drop-shadow-[0_0_10px_rgba(217,26,42,0.6)] brightness-125 hue-rotate-[320deg] opacity-90"
+              />
 
-                {/* SINGLE PIN AKURAT: SUMBAWA BESAR (PULAU SUMBAWA / NTB) */}
-                <g transform="translate(528, 329)">
-                  <circle r="26" fill="#D91A2A" className="animate-ping opacity-35" />
-                  <circle r="12" fill="#D91A2A" className="opacity-60" />
-                  <circle r="6" fill="#FFFFFF" />
-                  <text x="16" y="-12" fill="#FFFFFF" fontSize="16" fontWeight="extrabold" fontFamily="sans-serif">Sumbawa Besar</text>
-                </g>
-              </svg>
+              {/* TITIK PULSING / GLOWING PIN SUMBAWA BESAR */}
+              <div className="absolute top-[68%] left-[54.5%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 group cursor-pointer z-10">
+                <div className="relative flex items-center justify-center">
+                  <span className="animate-ping absolute inline-flex h-6 w-6 rounded-full bg-[#D91A2A] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#D91A2A] border-2 border-white shadow-lg shadow-[#D91A2A]"></span>
+                </div>
+                
+                {/* BADGE LABEL NAMA LOKASI */}
+                <div className="bg-[#181818]/90 backdrop-blur-md border border-[#D91A2A]/50 px-2.5 py-1 rounded-lg shadow-xl flex items-center gap-1.5 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D91A2A] animate-pulse"></span>
+                  <span className="text-xs font-extrabold text-white tracking-wide">Sumbawa Besar</span>
+                </div>
+              </div>
             </div>
 
-            <p className="text-gray-400 text-xs text-center mt-2">
+            <p className="text-gray-400 text-xs text-center mt-3">
               📍 Pusat operasional dan pengiriman cepat untuk seluruh <span className="text-white font-semibold">Kabupaten Sumbawa</span>.
             </p>
           </div>
