@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import IndonesiaMap from './IndonesiaMap';
 
 const initialProducts = [
   { id: 'FL-001', category: 'florist', name: 'Moyo Rose Hand Bouquet', price: 150000, desc: 'Buket bunga mawar segar dipadu dedaunan estetik.', img: 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=500' },
@@ -284,24 +285,8 @@ export default function Home() {
 
             {/* SVG VEKTOR PETA INDONESIA PERSIS MOCKUP DENGAN SINGLE PIN SUMBAWA BESAR */}
             <div className="relative w-full h-64 md:h-80 my-2 flex items-center justify-center">
-              <svg viewBox="0 0 1000 500" className="w-full h-full filter drop-shadow-[0_0_12px_rgba(217,26,42,0.35)]">
-                {/* Sumatera */}
-                <path d="M 80,180 L 140,110 L 220,190 L 260,250 L 220,290 L 160,260 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
-                {/* Jawa */}
-                <path d="M 270,320 L 330,330 L 410,335 L 460,330 L 450,345 L 280,335 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
-                {/* Kalimantan */}
-                <path d="M 290,140 L 350,110 L 420,130 L 430,200 L 380,240 L 320,220 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
-                {/* Sulawesi */}
-                <path d="M 470,160 L 520,150 L 510,190 L 550,210 L 500,220 L 530,260 L 480,240 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
-                {/* Bali & Lombok */}
-                <path d="M 470,330 L 480,330 M 490,330 L 500,330" fill="none" stroke="#D91A2A" strokeWidth="2.5" strokeLinecap="round" className="opacity-80" />
-                {/* Sumbawa, Flores, Timor */}
-                <path d="M 510,330 L 545,328 L 600,325 L 650,330 L 680,340" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
-                {/* Maluku */}
-                <path d="M 600,180 L 630,200 L 610,240 M 650,220 L 670,250" fill="none" stroke="#D91A2A" strokeWidth="2" className="opacity-70" />
-                {/* Papua */}
-                <path d="M 720,200 L 780,180 L 880,210 L 890,310 L 820,310 L 780,260 L 730,240 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
-
+  <IndonesiaMap />
+</div>
                 {/* SINGLE PIN AKURAT: SUMBAWA BESAR (PULAU SUMBAWA / NTB) */}
                 <g transform="translate(528, 329)">
                   <circle r="26" fill="#D91A2A" className="animate-ping opacity-35" />
