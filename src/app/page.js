@@ -258,7 +258,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. ABOUT SECTION WITH AKURAT PRESISI VECTOR PETA PULAU SUMBAWA */}
+      {/* 3. ABOUT SECTION WITH INDONESIA MAP VECTOR & SINGLE PIN SUMBAWA BESAR */}
       <motion.section 
         id="about" 
         initial={{ opacity: 0, y: 50 }}
@@ -268,55 +268,46 @@ export default function Home() {
         className="py-20 px-6 bg-[#050505] border-t border-gray-900">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
-          {/* VEKTOR PETA PULAU SUMBAWA AKURAT SAMA SEPERTI GAMBAR CONTOH */}
+          {/* VEKTOR PETA KEPULAUAN INDONESIA MERAH ELEGAN */}
           <div className="lg:col-span-7 relative bg-[#111111] p-6 md:p-8 rounded-3xl border border-gray-800/80 overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#D91A2A]/10 rounded-full blur-3xl pointer-events-none"></div>
             
             <div className="flex items-center justify-between mb-4">
               <div>
                 <span className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest block mb-1">Jangkauan Layanan Lokal</span>
-                <h4 className="text-xl font-bold text-white">Peta Wilayah Kabupaten Sumbawa</h4>
+                <h4 className="text-xl font-bold text-white">Peta Layanan Kabupaten Sumbawa</h4>
               </div>
               <span className="px-3 py-1 rounded-full bg-[#D91A2A]/10 border border-[#D91A2A]/30 text-[#D91A2A] text-[10px] font-bold uppercase tracking-wider">
                 Pusat Operasional
               </span>
             </div>
 
-            {/* SVG PRESISI PULAU SUMBAWA (GARIS RED SOLID TERHUBUNG SESUAI GAMBAR CONTOH) */}
+            {/* SVG VEKTOR PETA INDONESIA PERSIS MOCKUP DENGAN SINGLE PIN SUMBAWA BESAR */}
             <div className="relative w-full h-64 md:h-80 my-2 flex items-center justify-center">
-              <svg viewBox="0 0 1000 480" className="w-full h-full filter drop-shadow-[0_0_14px_rgba(217,26,42,0.4)]">
-                {/* Siluet Geografis Pulau Sumbawa Terjalin Rapi */}
-                <path 
-                  d="M 120,300 
-                     C 90,260 120,200 170,180 
-                     C 220,160 280,180 330,195 
-                     C 370,190 390,140 430,120 
-                     C 480,100 550,110 580,150 
-                     C 600,180 580,210 610,225 
-                     C 640,230 670,190 710,185 
-                     C 760,180 830,190 850,220 
-                     C 870,250 830,280 800,270 
-                     C 770,260 760,280 770,300 
-                     C 780,320 750,330 730,310 
-                     C 700,280 670,310 650,330 
-                     C 620,350 580,310 560,290 
-                     C 530,260 500,270 470,285 
-                     C 440,300 400,290 370,300 
-                     C 330,310 290,320 250,325 
-                     C 200,330 150,330 120,300 Z" 
-                  fill="none" 
-                  stroke="#D91A2A" 
-                  strokeWidth="4" 
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <svg viewBox="0 0 1000 500" className="w-full h-full filter drop-shadow-[0_0_12px_rgba(217,26,42,0.35)]">
+                {/* Sumatera */}
+                <path d="M 80,180 L 140,110 L 220,190 L 260,250 L 220,290 L 160,260 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
+                {/* Jawa */}
+                <path d="M 270,320 L 330,330 L 410,335 L 460,330 L 450,345 L 280,335 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
+                {/* Kalimantan */}
+                <path d="M 290,140 L 350,110 L 420,130 L 430,200 L 380,240 L 320,220 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
+                {/* Sulawesi */}
+                <path d="M 470,160 L 520,150 L 510,190 L 550,210 L 500,220 L 530,260 L 480,240 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
+                {/* Bali & Lombok */}
+                <path d="M 470,330 L 480,330 M 490,330 L 500,330" fill="none" stroke="#D91A2A" strokeWidth="2.5" strokeLinecap="round" className="opacity-80" />
+                {/* Sumbawa, Flores, Timor */}
+                <path d="M 510,330 L 545,328 L 600,325 L 650,330 L 680,340" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
+                {/* Maluku */}
+                <path d="M 600,180 L 630,200 L 610,240 M 650,220 L 670,250" fill="none" stroke="#D91A2A" strokeWidth="2" className="opacity-70" />
+                {/* Papua */}
+                <path d="M 720,200 L 780,180 L 880,210 L 890,310 L 820,310 L 780,260 L 730,240 Z" fill="none" stroke="#D91A2A" strokeWidth="2.5" className="opacity-80" />
 
-                {/* HANYA SATU TITIK LOKASI UTAMA: SUMBAWA BESAR */}
-                <g transform="translate(355, 205)">
-                  <circle r="24" fill="#D91A2A" className="animate-ping opacity-30" />
+                {/* SINGLE PIN AKURAT: SUMBAWA BESAR (PULAU SUMBAWA / NTB) */}
+                <g transform="translate(528, 329)">
+                  <circle r="26" fill="#D91A2A" className="animate-ping opacity-35" />
                   <circle r="12" fill="#D91A2A" className="opacity-60" />
                   <circle r="6" fill="#FFFFFF" />
-                  <text x="18" y="6" fill="#FFFFFF" fontSize="16" fontWeight="extrabold" fontFamily="sans-serif">Sumbawa Besar</text>
+                  <text x="16" y="-12" fill="#FFFFFF" fontSize="16" fontWeight="extrabold" fontFamily="sans-serif">Sumbawa Besar</text>
                 </g>
               </svg>
             </div>
@@ -328,7 +319,7 @@ export default function Home() {
 
           {/* STATISTIK & TEKS TENTANG KAMI */}
           <div className="lg:col-span-5">
-            <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-3">Tentang AWINA Group</h2>
+            <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-3">Jangkauan Layanan & Statistik</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Dedikasi Seni & Kualitas Terbaik Sejak 2016</h3>
             <p className="text-gray-400 text-sm mb-8 leading-relaxed">
               AWINA Group menghadirkan ekosistem layanan kreatif terlengkap di Kabupaten Sumbawa. Mulai dari rangkaian bunga mawar segar, foto studio berstandar sinematik, hantaran seserahan akrilik mewah, hingga papan ucapan karangan bunga resmi.
