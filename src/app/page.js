@@ -113,7 +113,7 @@ export default function Home() {
       <header className="fixed top-0 w-full z-40 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           
-          {/* BRANDING NAVBAR DENGAN "A" MERAH DITEMPELKAN KE "WINA" */}
+          {/* BRANDING NAVBAR: UKURAN A MERAH SEMULA & SPASI PAS */}
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full border border-[#D91A2A]/40 overflow-hidden bg-black flex items-center justify-center shadow-md shadow-[#D91A2A]/20">
               <img 
@@ -124,7 +124,7 @@ export default function Home() {
             </div>
             
             <span className="text-xl font-extrabold tracking-widest text-white uppercase flex items-center select-none">
-              <span className="inline-block h-[20px] w-[18px] text-[#D91A2A] translate-y-[-1px]">
+              <span className="inline-block h-[22px] w-[22px] text-[#D91A2A] translate-y-[-1.5px] scale-[1.15]">
                 <svg viewBox="0 0 100 100" className="w-full h-full" fill="currentColor">
                   <polygon points="50,15 15,85 30,85 50,45 70,85 85,85" />
                 </svg>
@@ -402,15 +402,15 @@ export default function Home() {
                 />
               </div>
               
-              {/* BRANDING FOOTER DENGAN "A" MERAH PROPORSIONAL & TANPA SPASI RENGGANG */}
+              {/* BRANDING FOOTER: DISAMAKAN UKURAN A MERAH NAVBAR DENGAN SPASI PAS */}
               <span className="text-white font-extrabold text-lg uppercase tracking-wider flex items-center select-none">
-                <span className="inline-block h-[18px] w-[16px] text-[#D91A2A] translate-y-[-0.5px]">
+                <span className="inline-block h-[22px] w-[22px] text-[#D91A2A] translate-y-[-1.5px] scale-[1.15]">
                   <svg viewBox="0 0 100 100" className="w-full h-full" fill="currentColor">
                     <polygon points="50,15 15,85 30,85 50,45 70,85 85,85" />
                   </svg>
                 </span>
                 <span>WINA</span>
-                <span className="text-[#D91A2A] ml-1.5 font-bold">Group</span>
+                <span className="text-[#D91A2A] ml-2 font-bold">Group</span>
               </span>
             </div>
             <p className="text-xs text-gray-500">Layanan premium floral, studio foto, seserahan, & karangan bunga se-Sumbawa sejak 2016.</p>
