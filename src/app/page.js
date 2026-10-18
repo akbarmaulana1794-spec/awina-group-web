@@ -94,7 +94,7 @@ export default function Home() {
     if (isOnlyStudioService) {
       msg += `\n📍 *Metode:* Sesi Foto di Studio (Bebas Ongkir)`;
     } else {
-      msg += `\n📍 *Lokasi:* Sumbawa Besar`;
+      msg += `\n📍 *Lokasi:* Kabupaten Sumbawa`;
     }
 
     msg += `\n📝 *Catatan:* ${notes || 'Tidak ada'}`;
@@ -258,7 +258,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. ABOUT SECTION WITH PULAU SUMBAWA MAP VECTOR */}
+      {/* 3. ABOUT SECTION WITH AKURAT VECTOR PETA PULAU SUMBAWA */}
       <motion.section 
         id="about" 
         initial={{ opacity: 0, y: 50 }}
@@ -268,86 +268,54 @@ export default function Home() {
         className="py-20 px-6 bg-[#050505] border-t border-gray-900">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
-          {/* ILUSTRASI VEKTOR PETA PULAU SUMBAWA (7 COLS) */}
+          {/* VEKTOR PETA PULAU SUMBAWA PRESISI */}
           <div className="lg:col-span-7 relative bg-[#111111] p-6 md:p-8 rounded-3xl border border-gray-800/80 overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#D91A2A]/10 rounded-full blur-3xl pointer-events-none"></div>
             
             <div className="flex items-center justify-between mb-4">
               <div>
                 <span className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest block mb-1">Jangkauan Layanan Lokal</span>
-                <h4 className="text-xl font-bold text-white">Peta Wilayah Sumbawa Besar</h4>
+                <h4 className="text-xl font-bold text-white">Peta Wilayah Kabupaten Sumbawa</h4>
               </div>
               <span className="px-3 py-1 rounded-full bg-[#D91A2A]/10 border border-[#D91A2A]/30 text-[#D91A2A] text-[10px] font-bold uppercase tracking-wider">
                 Pusat Operasional
               </span>
             </div>
 
-            {/* SVG VEKTOR KHUSUS SILUET PULAU SUMBAWA & KOTA SUMBAWA BESAR */}
+            {/* SVG SILUET PRESISI PULAU SUMBAWA GARIS RED SOLID & TITIK SUMBAWA BESAR */}
             <div className="relative w-full h-64 md:h-80 my-2 flex items-center justify-center">
-              <svg viewBox="0 0 800 450" className="w-full h-full drop-shadow-[0_0_15px_rgba(217,26,42,0.25)]">
-                {/* Siluet Vektor Garis Pulau Sumbawa */}
+              <svg viewBox="0 0 900 500" className="w-full h-full filter drop-shadow-[0_0_12px_rgba(217,26,42,0.35)]">
+                {/* Garis Tepi Solid Merah Siluet Asli Pulau Sumbawa */}
                 <path 
-                  d="M 60,230 C 80,210 110,200 140,215 C 160,225 180,220 200,210 C 220,200 240,170 270,165 C 300,160 320,175 350,170 C 370,165 385,140 410,130 C 440,120 470,135 500,125 C 530,115 560,105 590,120 C 620,135 650,125 680,140 C 710,155 740,180 730,210 C 720,240 680,250 650,265 C 620,280 590,290 560,280 C 530,270 510,285 480,280 C 450,275 430,295 400,290 C 370,285 350,260 320,265 C 290,270 270,290 240,285 C 210,280 190,260 160,265 C 130,270 100,260 80,250 Z" 
+                  d="M 115,310 C 105,290 115,260 135,240 C 150,225 175,230 195,205 C 215,180 250,185 275,195 C 290,200 310,195 325,185 C 345,170 375,160 395,145 C 415,130 435,120 450,130 C 470,140 495,140 515,165 C 530,185 520,205 540,215 C 555,220 570,205 590,190 C 610,175 640,170 665,180 C 690,190 710,180 735,185 C 755,190 775,210 765,225 C 755,240 735,235 725,250 C 720,260 735,265 745,265 C 760,265 770,270 760,285 C 745,300 705,300 685,280 C 665,260 645,280 635,295 C 620,315 595,295 585,280 C 570,260 550,250 530,260 C 515,270 505,285 485,280 C 465,275 440,285 415,280 C 390,275 365,290 340,295 C 315,300 290,305 270,300 C 245,295 225,310 200,320 C 170,330 135,325 115,310 Z M 380,180 C 370,150 375,125 400,120 C 430,115 480,135 500,165 C 510,180 480,190 450,185 C 420,180 395,200 380,180 Z M 620,225 C 625,215 635,215 635,225 C 635,235 625,235 620,225 Z" 
                   fill="none" 
                   stroke="#D91A2A" 
-                  strokeWidth="2.5" 
-                  strokeDasharray="6 4"
-                  className="opacity-70"
-                />
-                
-                {/* Area Teluk & Semenanjung Moyo / Sumbawa */}
-                <path 
-                  d="M 280,165 C 290,120 310,90 330,80 C 350,70 365,95 355,130 C 345,155 320,170 280,165 Z" 
-                  fill="none" 
-                  stroke="#D91A2A" 
-                  strokeWidth="1.8" 
-                  className="opacity-60"
+                  strokeWidth="3.5" 
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
 
-                {/* Network Nodes / Titik Garis Penghubung Layanan */}
-                <line x1="285" y1="180" x2="200" y2="230" stroke="#D91A2A" strokeWidth="1" strokeDasharray="3 3" className="opacity-40" />
-                <line x1="285" y1="180" x2="380" y2="200" stroke="#D91A2A" strokeWidth="1" strokeDasharray="3 3" className="opacity-40" />
-                <line x1="285" y1="180" x2="480" y2="210" stroke="#D91A2A" strokeWidth="1" strokeDasharray="3 3" className="opacity-40" />
-
-                {/* Titik Pusat Utama: SUMBAWA BESAR */}
-                <g transform="translate(285, 180)">
-                  <circle r="18" fill="#D91A2A" className="animate-ping opacity-25" />
-                  <circle r="10" fill="#D91A2A" className="opacity-40" />
-                  <circle r="5" fill="#FFFFFF" />
-                  <text x="14" y="5" fill="#FFFFFF" fontSize="13" fontWeight="bold" fontFamily="sans-serif">Sumbawa Besar (HQ)</text>
-                </g>
-
-                {/* Titik Sub-Wilayah 1: Labuhan Badas / Moyo */}
-                <g transform="translate(320, 110)">
-                  <circle r="3" fill="#D91A2A" />
-                  <text x="8" y="3" fill="#A1A1AA" fontSize="10" fontFamily="sans-serif">Moyo & Coastal</text>
-                </g>
-
-                {/* Titik Sub-Wilayah 2: Unter Iwes / Lopok */}
-                <g transform="translate(380, 200)">
-                  <circle r="3" fill="#D91A2A" />
-                  <text x="8" y="3" fill="#A1A1AA" fontSize="10" fontFamily="sans-serif">Lopok & Timur</text>
-                </g>
-
-                {/* Titik Sub-Wilayah 3: Alas / Barat */}
-                <g transform="translate(180, 230)">
-                  <circle r="3" fill="#D91A2A" />
-                  <text x="-35" y="15" fill="#A1A1AA" fontSize="10" fontFamily="sans-serif">Alas & Barat</text>
+                {/* HANYA SATU TITIK UTAMA: SUMBAWA BESAR */}
+                <g transform="translate(325, 230)">
+                  <circle r="22" fill="#D91A2A" className="animate-ping opacity-30" />
+                  <circle r="12" fill="#D91A2A" className="opacity-50" />
+                  <circle r="6" fill="#FFFFFF" />
+                  <text x="18" y="6" fill="#FFFFFF" fontSize="15" fontWeight="extrabold" fontFamily="sans-serif">Sumbawa Besar</text>
                 </g>
               </svg>
             </div>
 
             <p className="text-gray-400 text-xs text-center mt-2">
-              📍 Layanan siap antar cepat untuk seluruh area <span className="text-white font-semibold">Kota Sumbawa Besar & Sekitarnya</span>.
+              📍 Pusat operasional dan pengiriman cepat untuk seluruh <span className="text-white font-semibold">Kabupaten Sumbawa</span>.
             </p>
           </div>
 
-          {/* STATISTIK & TEKS TENTANG KAMI (5 COLS) */}
+          {/* STATISTIK & TEKS TENTANG KAMI */}
           <div className="lg:col-span-5">
             <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-3">Tentang AWINA Group</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Dedikasi Seni & Kualitas Terbaik Sejak 2016</h3>
             <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-              AWINA Group menghadirkan ekosistem layanan kreatif terlengkap di Sumbawa Besar. Mulai dari rangkaian bunga mawar segar, foto studio berstandar sinematik, hantaran seserahan akrilik mewah, hingga papan ucapan karangan bunga resmi.
+              AWINA Group menghadirkan ekosistem layanan kreatif terlengkap di Kabupaten Sumbawa. Mulai dari rangkaian bunga mawar segar, foto studio berstandar sinematik, hantaran seserahan akrilik mewah, hingga papan ucapan karangan bunga resmi.
             </p>
             
             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-800">
@@ -522,7 +490,7 @@ export default function Home() {
                 <svg className="w-4 h-4 fill-[#D91A2A] shrink-0" viewBox="0 0 24 24">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
-                <span>Sumbawa Besar</span>
+                <span>Kabupaten Sumbawa</span>
               </li>
             </ul>
           </div>
