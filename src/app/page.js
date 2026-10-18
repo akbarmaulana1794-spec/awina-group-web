@@ -264,7 +264,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. ABOUT SECTION WITH HIGH-DETAIL INTERACTIVE VECTOR MAP */}
+      {/* 3. ABOUT SECTION WITH CLEAN SUMBAWA MAP */}
       <motion.section 
         id="about" 
         initial={{ opacity: 0, y: 50 }}
@@ -274,7 +274,7 @@ export default function Home() {
         className="py-20 px-6 bg-[#050505] border-t border-gray-900">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
-          {/* PETA INDONESIA VEKTOR HIGH-DETAIL */}
+          {/* PETA SUMBAWA SISI KIRI */}
           <div className="lg:col-span-7 relative bg-[#111111] p-6 md:p-8 rounded-3xl border border-gray-800/80 overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#D91A2A]/10 rounded-full blur-3xl pointer-events-none"></div>
             
@@ -288,39 +288,27 @@ export default function Home() {
               </span>
             </div>
 
-            {/* CONTAINER PETA VEKTOR INLINE */}
-            <div className="relative w-full aspect-[2/1] my-2 flex items-center justify-center bg-black/50 rounded-2xl border border-gray-900 p-4 overflow-hidden">
-              <svg viewBox="0 0 1000 500" className="w-full h-full filter drop-shadow-[0_0_12px_rgba(217,26,42,0.4)]">
-                {/* Sumatera */}
-                <path d="M 60,190 Q 120,120 180,100 T 250,150 T 280,220 T 210,290 T 130,280 Z" fill="none" stroke="#D91A2A" strokeWidth="2" opacity="0.85" />
-                {/* Jawa */}
-                <path d="M 270,325 L 340,328 L 410,330 L 460,325 L 450,340 L 280,338 Z" fill="none" stroke="#D91A2A" strokeWidth="2" opacity="0.85" />
-                {/* Kalimantan */}
-                <path d="M 290,130 Q 360,90 420,120 T 440,200 T 370,240 T 310,210 Z" fill="none" stroke="#D91A2A" strokeWidth="2" opacity="0.85" />
-                {/* Sulawesi */}
-                <path d="M 470,160 L 525,150 L 515,190 L 560,205 L 505,225 L 535,265 L 480,245 Z" fill="none" stroke="#D91A2A" strokeWidth="2" opacity="0.85" />
-                {/* Kepulauan Nusa Tenggara (Bali, Lombok, Sumbawa, Flores, Timor) */}
-                <circle cx="475" cy="332" r="3" fill="#D91A2A" opacity="0.6" />
-                <circle cx="495" cy="332" r="3" fill="#D91A2A" opacity="0.6" />
-                {/* Garis Pulau Sumbawa Hingga Timor */}
-                <path d="M 510,332 L 550,330 L 600,328 L 650,335 L 685,345" fill="none" stroke="#D91A2A" strokeWidth="2.5" opacity="0.9" />
-                {/* Maluku */}
-                <path d="M 600,180 L 630,200 L 610,240 M 650,220 L 670,250" fill="none" stroke="#D91A2A" strokeWidth="1.8" opacity="0.7" />
-                {/* Papua */}
-                <path d="M 720,200 Q 780,160 880,190 T 895,300 T 800,305 T 730,240 Z" fill="none" stroke="#D91A2A" strokeWidth="2" opacity="0.85" />
+            {/* CONTAINER GAMBAR PETA SUMBAWA & SINGLE PIN SUMBAWA BESAR */}
+            <div className="relative w-full aspect-[2/1] my-2 flex items-center justify-center bg-black/40 rounded-2xl border border-gray-900/80 p-4 overflow-hidden">
+              <img 
+                src="/map-sumbawa.png" 
+                alt="Peta Wilayah Sumbawa"
+                className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(217,26,42,0.4)]"
+              />
 
-                {/* SINGLE GLOWING PIN AKURAT SUMBAWA BESAR */}
-                <g transform="translate(532, 330)">
-                  <circle r="22" fill="#D91A2A" className="animate-ping opacity-40" />
-                  <circle r="10" fill="#D91A2A" className="opacity-70" />
-                  <circle r="5" fill="#FFFFFF" />
-                  {/* Label Boks Nama Sumbawa Besar */}
-                  <g transform="translate(15, -16)">
-                    <rect x="0" y="0" width="125" height="30" rx="6" fill="#181818" stroke="#D91A2A" strokeWidth="1" opacity="0.9" />
-                    <text x="12" y="20" fill="#FFFFFF" fontSize="12" fontWeight="bold" fontFamily="sans-serif">Sumbawa Besar</text>
-                  </g>
-                </g>
-              </svg>
+              {/* TITIK PULSING GLOWING PIN SUMBAWA BESAR */}
+              <div className="absolute top-[48%] left-[28%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 z-10">
+                <div className="relative flex items-center justify-center">
+                  <span className="animate-ping absolute inline-flex h-6 w-6 rounded-full bg-[#D91A2A] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#D91A2A] border-2 border-white shadow-lg shadow-[#D91A2A]"></span>
+                </div>
+                
+                {/* BADGE LABEL NAMA LOKASI */}
+                <div className="bg-[#181818]/90 backdrop-blur-md border border-[#D91A2A]/60 px-3 py-1 rounded-lg shadow-xl flex items-center gap-1.5 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D91A2A] animate-pulse"></span>
+                  <span className="text-xs font-extrabold text-white tracking-wide">Sumbawa Besar</span>
+                </div>
+              </div>
             </div>
 
             <p className="text-gray-400 text-xs text-center mt-3">
