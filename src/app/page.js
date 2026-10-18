@@ -258,7 +258,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. ABOUT SECTION WITH AKURAT VECTOR PETA PULAU SUMBAWA */}
+      {/* 3. ABOUT SECTION WITH AKURAT PRESISI VECTOR PETA PULAU SUMBAWA */}
       <motion.section 
         id="about" 
         initial={{ opacity: 0, y: 50 }}
@@ -268,7 +268,7 @@ export default function Home() {
         className="py-20 px-6 bg-[#050505] border-t border-gray-900">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
-          {/* VEKTOR PETA PULAU SUMBAWA PRESISI */}
+          {/* VEKTOR PETA PULAU SUMBAWA AKURAT SAMA SEPERTI GAMBAR CONTOH */}
           <div className="lg:col-span-7 relative bg-[#111111] p-6 md:p-8 rounded-3xl border border-gray-800/80 overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#D91A2A]/10 rounded-full blur-3xl pointer-events-none"></div>
             
@@ -282,25 +282,41 @@ export default function Home() {
               </span>
             </div>
 
-            {/* SVG SILUET PRESISI PULAU SUMBAWA GARIS RED SOLID & TITIK SUMBAWA BESAR */}
+            {/* SVG PRESISI PULAU SUMBAWA (GARIS RED SOLID TERHUBUNG SESUAI GAMBAR CONTOH) */}
             <div className="relative w-full h-64 md:h-80 my-2 flex items-center justify-center">
-              <svg viewBox="0 0 900 500" className="w-full h-full filter drop-shadow-[0_0_12px_rgba(217,26,42,0.35)]">
-                {/* Garis Tepi Solid Merah Siluet Asli Pulau Sumbawa */}
+              <svg viewBox="0 0 1000 480" className="w-full h-full filter drop-shadow-[0_0_14px_rgba(217,26,42,0.4)]">
+                {/* Siluet Geografis Pulau Sumbawa Terjalin Rapi */}
                 <path 
-                  d="M 115,310 C 105,290 115,260 135,240 C 150,225 175,230 195,205 C 215,180 250,185 275,195 C 290,200 310,195 325,185 C 345,170 375,160 395,145 C 415,130 435,120 450,130 C 470,140 495,140 515,165 C 530,185 520,205 540,215 C 555,220 570,205 590,190 C 610,175 640,170 665,180 C 690,190 710,180 735,185 C 755,190 775,210 765,225 C 755,240 735,235 725,250 C 720,260 735,265 745,265 C 760,265 770,270 760,285 C 745,300 705,300 685,280 C 665,260 645,280 635,295 C 620,315 595,295 585,280 C 570,260 550,250 530,260 C 515,270 505,285 485,280 C 465,275 440,285 415,280 C 390,275 365,290 340,295 C 315,300 290,305 270,300 C 245,295 225,310 200,320 C 170,330 135,325 115,310 Z M 380,180 C 370,150 375,125 400,120 C 430,115 480,135 500,165 C 510,180 480,190 450,185 C 420,180 395,200 380,180 Z M 620,225 C 625,215 635,215 635,225 C 635,235 625,235 620,225 Z" 
+                  d="M 120,300 
+                     C 90,260 120,200 170,180 
+                     C 220,160 280,180 330,195 
+                     C 370,190 390,140 430,120 
+                     C 480,100 550,110 580,150 
+                     C 600,180 580,210 610,225 
+                     C 640,230 670,190 710,185 
+                     C 760,180 830,190 850,220 
+                     C 870,250 830,280 800,270 
+                     C 770,260 760,280 770,300 
+                     C 780,320 750,330 730,310 
+                     C 700,280 670,310 650,330 
+                     C 620,350 580,310 560,290 
+                     C 530,260 500,270 470,285 
+                     C 440,300 400,290 370,300 
+                     C 330,310 290,320 250,325 
+                     C 200,330 150,330 120,300 Z" 
                   fill="none" 
                   stroke="#D91A2A" 
-                  strokeWidth="3.5" 
+                  strokeWidth="4" 
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
 
-                {/* HANYA SATU TITIK UTAMA: SUMBAWA BESAR */}
-                <g transform="translate(325, 230)">
-                  <circle r="22" fill="#D91A2A" className="animate-ping opacity-30" />
-                  <circle r="12" fill="#D91A2A" className="opacity-50" />
+                {/* HANYA SATU TITIK LOKASI UTAMA: SUMBAWA BESAR */}
+                <g transform="translate(355, 205)">
+                  <circle r="24" fill="#D91A2A" className="animate-ping opacity-30" />
+                  <circle r="12" fill="#D91A2A" className="opacity-60" />
                   <circle r="6" fill="#FFFFFF" />
-                  <text x="18" y="6" fill="#FFFFFF" fontSize="15" fontWeight="extrabold" fontFamily="sans-serif">Sumbawa Besar</text>
+                  <text x="18" y="6" fill="#FFFFFF" fontSize="16" fontWeight="extrabold" fontFamily="sans-serif">Sumbawa Besar</text>
                 </g>
               </svg>
             </div>
