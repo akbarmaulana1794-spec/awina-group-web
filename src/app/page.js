@@ -472,4 +472,92 @@ export default function Home() {
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-end">
+            <motion.div 
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="bg-[#141414] w-full max-w-md h-full p-6 flex flex-col justify-between border-l border-gray-800">
+              <div>
+                <div className="flex items-center justify-between pb-4 border-b border-gray-800">
+                  <h3 className="text-xl font-bold text-white">🛒 Keranjang Belanja</h3>
+                  <button onClick={() => setIsCartOpen(false)} className="text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
+                </div>
+
+                <div className="py-4 space-y-3 max-h-[40vh] overflow-y-auto">
+                  {cart.length === 0 ? (
+                    <p className="text-gray-500 text-center py-6 text-sm">Keranjang Anda masih kosong.</p>
+                  ) : (
+                    cart.map((item) => (
+                      <div key={item.id} className="flex items-center justify-between bg-[#1F1F1F] p-3 rounded-xl">
+                        <div>
+                          <p className="text-white text-sm font-semibold">{item.name}</p>
+                          <p className="text-[#D91A2A] text-xs font-bold">Rp {(item.price * item.qty).toLocaleString('id-ID')}</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <button onClick={() => changeQty(item.id, -1)} className="w-6 h-6 bg-gray-800 text-white rounded font-bold text-xs">-</button>
+                          <span className="text-white text-xs">{item.qty}</span>
+                          <button onClick={() => changeQty(item.id, 1)} className="w-6 h-6 bg-gray-800 text-white rounded font-bold text-xs">+</button>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+
+              <div className="border-t border-gray-800 pt-4 space-y-4">
+                
+                {/* PILIHAN ONGKIR OTOMATIS: DIBUNYIKAN/DISUMBANGKAN JIKA HANYA FOTO STUDIO */}
+                {isOnlyStudioService ? (
+                  <div className="p-3 bg-[#1F1F1F] rounded-xl border border-gray-700/60 text-xs text-green-400 flex items-center gap-2">
+                    <span>📷</span>
+                    <span><strong>Sesi Foto Studio:</strong> Tanpa Pengiriman / Bebas Ongkir (Langsung Datang ke Studio).</span>
+                  </div>
+                ) : (
+                  <div>
+                    <label className="block text-xs text-gray-400 mb-1">Wilayah Pengiriman</label>
+                    <select 
+                      value={selectedArea} 
+                      onChange={(e) => setSelectedArea(e.target.value)}
+                      className="w-full bg-[#1F1F1F] border border-gray-700 text-white text-sm rounded-lg p-2.5 outline-none">
+                      <option value="0">Pilih Area Pengiriman...</option>
+                      <option value="25000">Kota Sumbawa Besar (+Rp 25.000)</option>
+                    </select>
+                  </div>
+                )}
+
+                <textarea 
+                  value={notes} 
+                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder="Catatan/Ucapan tambahan..." 
+                  className="w-full bg-[#1F1F1F] border border-gray-700 text-white text-sm rounded-lg p-2.5 outline-none" rows="2" />
+
+                <div className="space-y-1 text-sm border-t border-gray-800 pt-3">
+                  <div className="flex justify-between text-gray-400"><span>Subtotal:</span><span>Rp {subtotal.toLocaleString('id-ID')}</span></div>
+                  <div className="flex justify-between text-gray-400">
+                    <span>Ongkir:</span>
+                    <span>{isOnlyStudioService ? 'Rp 0' : `Rp ${ongkir.toLocaleString('id-ID')}`}</span>
+                  </div>
+                  <div className="flex justify-between text-white font-bold text-base pt-2 border-t border-gray-800">
+                    <span>Total:</span><span className="text-[#D91A2A]">Rp {total.toLocaleString('id-ID')}</span>
+                  </div>
+                </div>
+
+                <motion.button 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={handleCheckout}
+                  className="w-full bg-[#D91A2A] hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition">
+                  Pesan via WhatsApp 💬
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+    </main>
+  );
+}
