@@ -101,7 +101,7 @@ export default function Home() {
     msg += `\n🚚 *Ongkir:* ${isOnlyStudioService ? 'Rp 0 (Sesi Foto Studio)' : `Rp ${ongkir.toLocaleString('id-ID')}`}`;
     msg += `\n🔥 *TOTAL:* *Rp ${total.toLocaleString('id-ID')}*`;
 
-    window.open(`https://wa.me/6281916801907?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/6281916801901?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
   const filteredProducts = activeTab === 'all' 
@@ -124,7 +124,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full border border-[#D91A2A]/30 overflow-hidden bg-white flex items-center justify-center shadow-sm">
+            <div className="w-11 h-11 rounded-full border border-[#D91A2A]/30 overflow-hidden bg-white flex items-center justify-center shadow-sm">
               <img 
                 src="/logo.jpg" 
                 alt="AWINA Group Logo" 
@@ -132,11 +132,10 @@ export default function Home() {
               />
             </div>
             
+            {/* BRANDING DENGAN SIMBOL A FLORAL EKSKLUSIF */}
             <span className="text-xl font-extrabold tracking-widest text-[#1C1917] uppercase flex items-center select-none">
-              <span className="inline-block h-[22px] w-[22px] text-[#D91A2A] translate-y-[-1.5px] scale-[1.15]">
-                <svg viewBox="0 0 100 100" className="w-full h-full" fill="currentColor">
-                  <polygon points="50,15 15,85 30,85 50,45 70,85 85,85" />
-                </svg>
+              <span className="inline-block h-7 w-6 mr-0.5">
+                <img src="/logo-a.png" alt="A Floral" className="w-full h-full object-contain" />
               </span>
               <span>WINA</span>
               <span className="text-[#D91A2A] ml-2">Group</span>
@@ -222,7 +221,7 @@ export default function Home() {
               <motion.a 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://wa.me/6281916801907" target="_blank" className="bg-white hover:bg-[#F5F2EB] text-[#1C1917] border border-[#E7E2D8] px-7 py-3.5 rounded-xl font-semibold transition shadow-sm">
+                href="https://wa.me/6281916801901" target="_blank" className="bg-white hover:bg-[#F5F2EB] text-[#1C1917] border border-[#E7E2D8] px-7 py-3.5 rounded-xl font-semibold transition shadow-sm">
                 Hubungi Kami
               </motion.a>
             </motion.div>
@@ -269,7 +268,6 @@ export default function Home() {
         className="py-20 px-6 bg-[#F5F2EB] border-t border-[#E7E2D8]">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
-          {/* PETA SUMBAWA DENGAN BINGKAI EKSKLUSIF */}
           <div className="lg:col-span-7 relative bg-[#1C1917] p-6 md:p-8 rounded-3xl border border-[#3A3530] overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#D91A2A]/15 rounded-full blur-3xl pointer-events-none"></div>
             
@@ -283,7 +281,6 @@ export default function Home() {
               </span>
             </div>
 
-            {/* CONTAINER GAMBAR PETA SUMBAWA & SINGLE PIN */}
             <div className="relative w-full aspect-[2/1] my-2 flex items-center justify-center bg-[#12100E] rounded-2xl border border-[#2D2825] p-4 overflow-hidden">
               <img 
                 src="/map-sumbawa.png" 
@@ -291,7 +288,6 @@ export default function Home() {
                 className="w-full h-full object-contain filter drop-shadow-[0_0_18px_rgba(217,26,42,0.5)]"
               />
 
-              {/* TITIK PULSING GLOWING PIN SUMBAWA BESAR */}
               <div className="absolute top-[48%] left-[28%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 z-10">
                 <div className="relative flex items-center justify-center">
                   <span className="animate-ping absolute inline-flex h-6 w-6 rounded-full bg-[#D91A2A] opacity-75"></span>
@@ -310,7 +306,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* STATISTIK & TEKS TENTANG KAMI */}
           <div className="lg:col-span-5">
             <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-3">Jangkauan Layanan & Statistik</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-[#1C1917] mb-6">Dedikasi Seni & Kualitas Terbaik Sejak 2016</h3>
@@ -437,7 +432,7 @@ export default function Home() {
         </AnimatePresence>
       </section>
 
-      {/* 6. FOOTER */}
+      {/* 6. FOOTER LENGKAP SOSIAL MEDIA */}
       <footer id="contact" className="bg-[#1C1917] py-12 px-6 border-t border-[#2D2825] text-gray-300 text-sm">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
           <div>
@@ -451,10 +446,8 @@ export default function Home() {
               </div>
               
               <span className="text-white font-extrabold text-lg uppercase tracking-wider flex items-center select-none">
-                <span className="inline-block h-[22px] w-[22px] text-[#D91A2A] translate-y-[-1.5px] scale-[1.15]">
-                  <svg viewBox="0 0 100 100" className="w-full h-full" fill="currentColor">
-                    <polygon points="50,15 15,85 30,85 50,45 70,85 85,85" />
-                  </svg>
+                <span className="inline-block h-6 w-5 mr-0.5">
+                  <img src="/logo-a.png" alt="A Floral" className="w-full h-full object-contain filter brightness-200" />
                 </span>
                 <span>WINA</span>
                 <span className="text-[#D91A2A] ml-2 font-bold">Group</span>
@@ -472,25 +465,31 @@ export default function Home() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider">Kontak</h4>
-            <ul className="space-y-3 text-xs">
+            <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider">Kontak & Media Sosial</h4>
+            <ul className="space-y-2.5 text-xs">
               <li className="flex items-center gap-2">
                 <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
                   <path fill="#25D366" d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.32a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24zm4.52-6.18c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.28z"/>
                 </svg>
-                <a href="https://wa.me/6281916801907" target="_blank" className="hover:text-white transition">081916801907</a>
+                <a href="https://wa.me/6281916801901" target="_blank" className="hover:text-white transition">081916801901</a>
               </li>
               <li className="flex items-center gap-2">
                 <svg className="w-4 h-4 fill-pink-500 shrink-0" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
-                <a href="https://instagram.com/Awina_Group" target="_blank" className="hover:text-white transition">@Awina_Group</a>
+                <a href="https://instagram.com/tokobunga_awina" target="_blank" className="hover:text-white transition">@tokobunga_awina</a>
               </li>
               <li className="flex items-center gap-2">
-                <svg className="w-4 h-4 fill-[#D91A2A] shrink-0" viewBox="0 0 24 24">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                <svg className="w-4 h-4 fill-cyan-400 shrink-0" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.34 22a6.34 6.34 0 0 0 6.34-6.32V9.48a8.16 8.16 0 0 0 4.91 1.62v-3.46a4.85 4.85 0 0 1-1-.95z"/>
                 </svg>
-                <span>Kabupaten Sumbawa</span>
+                <a href="https://www.tiktok.com/@toko_bunga_awina?_r=1&_t=ZS-9AjcbKUZwyG" target="_blank" className="hover:text-white transition">@toko_bunga_awina</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg className="w-4 h-4 fill-blue-500 shrink-0" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <a href="https://www.facebook.com/share/1CVowNkEa7/" target="_blank" className="hover:text-white transition">AWINA Group Facebook</a>
               </li>
             </ul>
           </div>
