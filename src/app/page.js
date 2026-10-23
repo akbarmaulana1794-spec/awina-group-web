@@ -73,7 +73,6 @@ export default function Home() {
     }
   };
 
-  // Cek apakah seluruh item di keranjang hanya produk studio foto
   const isOnlyStudioService = cart.length > 0 && cart.every((item) => item.category === 'studio');
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
@@ -118,14 +117,14 @@ export default function Home() {
   ];
 
   return (
-    <main className="bg-[#0A0A0A] text-gray-100 min-h-screen font-sans selection:bg-[#D91A2A] selection:text-white scroll-smooth overflow-x-hidden">
+    <main className="bg-[#FDFBF7] text-[#1C1917] min-h-screen font-sans selection:bg-[#D91A2A] selection:text-white scroll-smooth overflow-x-hidden">
       
       {/* 1. HEADER & NAVBAR */}
-      <header className="fixed top-0 w-full z-40 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-gray-800">
+      <header className="fixed top-0 w-full z-40 bg-[#FDFBF7]/90 backdrop-blur-md border-b border-[#E7E2D8] shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full border border-[#D91A2A]/40 overflow-hidden bg-black flex items-center justify-center shadow-md shadow-[#D91A2A]/20">
+            <div className="w-10 h-10 rounded-full border border-[#D91A2A]/30 overflow-hidden bg-white flex items-center justify-center shadow-sm">
               <img 
                 src="/logo.jpg" 
                 alt="AWINA Group Logo" 
@@ -133,7 +132,7 @@ export default function Home() {
               />
             </div>
             
-            <span className="text-xl font-extrabold tracking-widest text-white uppercase flex items-center select-none">
+            <span className="text-xl font-extrabold tracking-widest text-[#1C1917] uppercase flex items-center select-none">
               <span className="inline-block h-[22px] w-[22px] text-[#D91A2A] translate-y-[-1.5px] scale-[1.15]">
                 <svg viewBox="0 0 100 100" className="w-full h-full" fill="currentColor">
                   <polygon points="50,15 15,85 30,85 50,45 70,85 85,85" />
@@ -144,14 +143,14 @@ export default function Home() {
             </span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-[#44403C]">
             {navLinks.map((link) => (
               <a
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={(e) => scrollToSection(e, link.id)}
                 className={`relative py-1 transition ${
-                  activeNav === link.id ? 'text-[#D91A2A] font-semibold' : 'hover:text-white'
+                  activeNav === link.id ? 'text-[#D91A2A] font-bold' : 'hover:text-[#1C1917]'
                 }`}>
                 {link.label}
                 {activeNav === link.id && (
@@ -170,8 +169,8 @@ export default function Home() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsCartOpen(true)}
-              className="bg-[#D91A2A] hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition flex items-center gap-2 shadow-lg shadow-[#D91A2A]/20">
-              🛒 Keranjang <span className="bg-white text-[#0A0A0A] px-2 py-0.5 rounded-full text-xs font-bold">{cart.reduce((s, i) => s + i.qty, 0)}</span>
+              className="bg-[#D91A2A] hover:bg-[#B81222] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition flex items-center gap-2 shadow-md shadow-[#D91A2A]/20">
+              🛒 Keranjang <span className="bg-white text-[#D91A2A] px-2 py-0.5 rounded-full text-xs font-bold">{cart.reduce((s, i) => s + i.qty, 0)}</span>
             </motion.button>
           </div>
         </div>
@@ -185,7 +184,7 @@ export default function Home() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D91A2A]/10 border border-[#D91A2A]/30 text-[#D91A2A] text-xs font-semibold uppercase tracking-wider mb-6">
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D91A2A]/10 border border-[#D91A2A]/30 text-[#D91A2A] text-xs font-bold uppercase tracking-wider mb-6">
               <span className="w-2 h-2 rounded-full bg-[#D91A2A] animate-pulse"></span> Sumbawa
             </motion.div>
 
@@ -194,7 +193,7 @@ export default function Home() {
                 initial={{ y: '100%', opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                className="text-4xl md:text-6xl font-extrabold text-[#1C1917] leading-tight">
                 Momen Berharga Anda, <span className="text-[#D91A2A]">Mahakarya</span> Kami.
               </motion.h1>
             </div>
@@ -203,7 +202,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-gray-400 text-lg mb-8 leading-relaxed">
+              className="text-[#57534E] text-lg mb-8 leading-relaxed">
               Layanan premium floral, studio foto, seserahan, & karangan bunga terpercaya yang melayani seluruh wilayah Kabupaten Sumbawa sejak 2016.
             </motion.p>
 
@@ -217,13 +216,13 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 href="#catalog" 
                 onClick={(e) => scrollToSection(e, 'catalog')}
-                className="bg-[#D91A2A] hover:bg-red-700 text-white px-7 py-3.5 rounded-xl font-semibold transition shadow-lg shadow-[#D91A2A]/25">
+                className="bg-[#D91A2A] hover:bg-[#B81222] text-white px-7 py-3.5 rounded-xl font-semibold transition shadow-lg shadow-[#D91A2A]/20">
                 Jelajahi Layanan
               </motion.a>
               <motion.a 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://wa.me/6281916801907" target="_blank" className="bg-[#141414] hover:bg-[#1F1F1F] text-gray-200 border border-gray-800 px-7 py-3.5 rounded-xl font-semibold transition">
+                href="https://wa.me/6281916801907" target="_blank" className="bg-white hover:bg-[#F5F2EB] text-[#1C1917] border border-[#E7E2D8] px-7 py-3.5 rounded-xl font-semibold transition shadow-sm">
                 Hubungi Kami
               </motion.a>
             </motion.div>
@@ -231,69 +230,65 @@ export default function Home() {
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
-              {/* AWINA FLORIST */}
-              <motion.div variants={clipReveal} initial="hidden" animate="show" className="h-48 rounded-2xl overflow-hidden relative border border-gray-800 group">
+              <motion.div variants={clipReveal} initial="hidden" animate="show" className="h-48 rounded-2xl overflow-hidden relative border border-[#E7E2D8] shadow-sm group">
                 <img src="/florist.jpg" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <span className="absolute bottom-3 left-3 text-xs font-semibold text-white">AWINA Florist</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <span className="absolute bottom-3 left-3 text-xs font-bold text-white">AWINA Florist</span>
               </motion.div>
 
-              {/* AWINA PHOTO STUDIO */}
-              <motion.div variants={clipReveal} initial="hidden" animate="show" transition={{ delay: 0.2 }} className="h-64 rounded-2xl overflow-hidden relative border border-gray-800 group">
+              <motion.div variants={clipReveal} initial="hidden" animate="show" transition={{ delay: 0.2 }} className="h-64 rounded-2xl overflow-hidden relative border border-[#E7E2D8] shadow-sm group">
                 <img src="/studio.jpg" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <span className="absolute bottom-3 left-3 text-xs font-semibold text-white">AWINA Photo Studio</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <span className="absolute bottom-3 left-3 text-xs font-bold text-white">AWINA Photo Studio</span>
               </motion.div>
             </div>
             <div className="space-y-4 pt-8">
-              {/* AWINA SESERAHAN */}
-              <motion.div variants={clipReveal} initial="hidden" animate="show" transition={{ delay: 0.3 }} className="h-64 rounded-2xl overflow-hidden relative border border-gray-800 group">
+              <motion.div variants={clipReveal} initial="hidden" animate="show" transition={{ delay: 0.3 }} className="h-64 rounded-2xl overflow-hidden relative border border-[#E7E2D8] shadow-sm group">
                 <img src="/seserahan.jpg" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <span className="absolute bottom-3 left-3 text-xs font-semibold text-white">AWINA Seserahan</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <span className="absolute bottom-3 left-3 text-xs font-bold text-white">AWINA Seserahan</span>
               </motion.div>
 
-              {/* AWINA BOARD & TRIBUTE */}
-              <motion.div variants={clipReveal} initial="hidden" animate="show" transition={{ delay: 0.4 }} className="h-48 rounded-2xl overflow-hidden relative border border-gray-800 group">
+              <motion.div variants={clipReveal} initial="hidden" animate="show" transition={{ delay: 0.4 }} className="h-48 rounded-2xl overflow-hidden relative border border-[#E7E2D8] shadow-sm group">
                 <img src="/board.jpg" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <span className="absolute bottom-3 left-3 text-xs font-semibold text-white">AWINA Board & Tribute</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <span className="absolute bottom-3 left-3 text-xs font-bold text-white">AWINA Board & Tribute</span>
               </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. ABOUT SECTION WITH CLEAN SUMBAWA MAP */}
+      {/* 3. ABOUT SECTION WITH HARMONIZED LUXURY MAP CONTAINER */}
       <motion.section 
         id="about" 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.7 }}
-        className="py-20 px-6 bg-[#050505] border-t border-gray-900">
+        className="py-20 px-6 bg-[#F5F2EB] border-t border-[#E7E2D8]">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
-          {/* PETA SUMBAWA SISI KIRI */}
-          <div className="lg:col-span-7 relative bg-[#111111] p-6 md:p-8 rounded-3xl border border-gray-800/80 overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#D91A2A]/10 rounded-full blur-3xl pointer-events-none"></div>
+          {/* PETA SUMBAWA DENGAN BINGKAI EKSKLUSIF */}
+          <div className="lg:col-span-7 relative bg-[#1C1917] p-6 md:p-8 rounded-3xl border border-[#3A3530] overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#D91A2A]/15 rounded-full blur-3xl pointer-events-none"></div>
             
             <div className="flex items-center justify-between mb-6">
               <div>
                 <span className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest block mb-1">Jangkauan Layanan Lokal</span>
                 <h4 className="text-xl font-bold text-white">Peta Layanan Kabupaten Sumbawa</h4>
               </div>
-              <span className="px-3 py-1 rounded-full bg-[#D91A2A]/10 border border-[#D91A2A]/30 text-[#D91A2A] text-[10px] font-bold uppercase tracking-wider">
+              <span className="px-3 py-1 rounded-full bg-[#D91A2A]/20 border border-[#D91A2A]/40 text-[#FF6B7A] text-[10px] font-bold uppercase tracking-wider">
                 Pusat Operasional
               </span>
             </div>
 
-            {/* CONTAINER GAMBAR PETA SUMBAWA & SINGLE PIN SUMBAWA BESAR */}
-            <div className="relative w-full aspect-[2/1] my-2 flex items-center justify-center bg-black/40 rounded-2xl border border-gray-900/80 p-4 overflow-hidden">
+            {/* CONTAINER GAMBAR PETA SUMBAWA & SINGLE PIN */}
+            <div className="relative w-full aspect-[2/1] my-2 flex items-center justify-center bg-[#12100E] rounded-2xl border border-[#2D2825] p-4 overflow-hidden">
               <img 
                 src="/map-sumbawa.png" 
                 alt="Peta Wilayah Sumbawa"
-                className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(217,26,42,0.4)]"
+                className="w-full h-full object-contain filter drop-shadow-[0_0_18px_rgba(217,26,42,0.5)]"
               />
 
               {/* TITIK PULSING GLOWING PIN SUMBAWA BESAR */}
@@ -303,8 +298,7 @@ export default function Home() {
                   <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#D91A2A] border-2 border-white shadow-lg shadow-[#D91A2A]"></span>
                 </div>
                 
-                {/* BADGE LABEL NAMA LOKASI */}
-                <div className="bg-[#181818]/90 backdrop-blur-md border border-[#D91A2A]/60 px-3 py-1 rounded-lg shadow-xl flex items-center gap-1.5 whitespace-nowrap">
+                <div className="bg-[#1C1917]/95 backdrop-blur-md border border-[#D91A2A]/60 px-3 py-1 rounded-lg shadow-xl flex items-center gap-1.5 whitespace-nowrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D91A2A] animate-pulse"></span>
                   <span className="text-xs font-extrabold text-white tracking-wide">Sumbawa Besar</span>
                 </div>
@@ -319,23 +313,23 @@ export default function Home() {
           {/* STATISTIK & TEKS TENTANG KAMI */}
           <div className="lg:col-span-5">
             <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-3">Jangkauan Layanan & Statistik</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Dedikasi Seni & Kualitas Terbaik Sejak 2016</h3>
-            <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+            <h3 className="text-3xl md:text-4xl font-bold text-[#1C1917] mb-6">Dedikasi Seni & Kualitas Terbaik Sejak 2016</h3>
+            <p className="text-[#57534E] text-sm mb-8 leading-relaxed">
               AWINA Group menghadirkan ekosistem layanan kreatif terlengkap di Kabupaten Sumbawa. Mulai dari rangkaian bunga mawar segar, foto studio berstandar sinematik, hantaran seserahan akrilik mewah, hingga papan ucapan karangan bunga resmi.
             </p>
             
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-800">
-              <div className="bg-[#141414] p-4 rounded-xl border border-gray-800/80 text-center">
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-[#E7E2D8]">
+              <div className="bg-white p-4 rounded-xl border border-[#E7E2D8] text-center shadow-sm">
                 <p className="text-2xl md:text-3xl font-extrabold text-[#D91A2A]">10k+</p>
-                <p className="text-gray-400 text-[11px] mt-1">Klien Puas</p>
+                <p className="text-[#78716C] text-[11px] font-medium mt-1">Klien Puas</p>
               </div>
-              <div className="bg-[#141414] p-4 rounded-xl border border-gray-800/80 text-center">
+              <div className="bg-white p-4 rounded-xl border border-[#E7E2D8] text-center shadow-sm">
                 <p className="text-2xl md:text-3xl font-extrabold text-[#D91A2A]">24/7</p>
-                <p className="text-gray-400 text-[11px] mt-1">Pengiriman</p>
+                <p className="text-[#78716C] text-[11px] font-medium mt-1">Pengiriman</p>
               </div>
-              <div className="bg-[#141414] p-4 rounded-xl border border-gray-800/80 text-center">
+              <div className="bg-white p-4 rounded-xl border border-[#E7E2D8] text-center shadow-sm">
                 <p className="text-2xl md:text-3xl font-extrabold text-[#D91A2A]">2016</p>
-                <p className="text-gray-400 text-[11px] mt-1">Sejak Berdiri</p>
+                <p className="text-[#78716C] text-[11px] font-medium mt-1">Sejak Berdiri</p>
               </div>
             </div>
           </div>
@@ -344,10 +338,10 @@ export default function Home() {
       </motion.section>
 
       {/* 4. KARYA & LAYANAN */}
-      <section id="services" className="py-20 px-6 max-w-7xl mx-auto border-t border-gray-900">
+      <section id="services" className="py-20 px-6 max-w-7xl mx-auto border-t border-[#E7E2D8]">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-3">The Craft & Services</h2>
-          <p className="text-3xl md:text-4xl font-bold text-white">Karya & Layanan Kami</p>
+          <p className="text-3xl md:text-4xl font-bold text-[#1C1917]">Karya & Layanan Kami</p>
         </div>
 
         <motion.div 
@@ -357,50 +351,50 @@ export default function Home() {
           viewport={{ once: true, margin: '-50px' }}
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          <motion.div variants={itemFadeUp} className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
+          <motion.div variants={itemFadeUp} className="bg-white border border-[#E7E2D8] hover:border-[#D91A2A] rounded-2xl p-6 transition shadow-sm hover:shadow-md group">
             <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">💐</div>
-            <h3 className="text-xl font-bold text-white mb-2">AWINA Florist</h3>
-            <p className="text-gray-400 text-sm mb-6">Buket bunga segar & bunga meja dengan estetika seni tinggi.</p>
-            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+            <h3 className="text-xl font-bold text-[#1C1917] mb-2">AWINA Florist</h3>
+            <p className="text-[#78716C] text-sm mb-6">Buket bunga segar & bunga meja dengan estetika seni tinggi.</p>
+            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-bold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
           </motion.div>
 
-          <motion.div variants={itemFadeUp} className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
+          <motion.div variants={itemFadeUp} className="bg-white border border-[#E7E2D8] hover:border-[#D91A2A] rounded-2xl p-6 transition shadow-sm hover:shadow-md group">
             <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">📷</div>
-            <h3 className="text-xl font-bold text-white mb-2">AWINA Photo Studio</h3>
-            <p className="text-gray-400 text-sm mb-6">Sesi foto personal, prewedding, & keluarga berstandar sinematik.</p>
-            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+            <h3 className="text-xl font-bold text-[#1C1917] mb-2">AWINA Photo Studio</h3>
+            <p className="text-[#78716C] text-sm mb-6">Sesi foto personal, prewedding, & keluarga berstandar sinematik.</p>
+            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-bold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
           </motion.div>
 
-          <motion.div variants={itemFadeUp} className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
+          <motion.div variants={itemFadeUp} className="bg-white border border-[#E7E2D8] hover:border-[#D91A2A] rounded-2xl p-6 transition shadow-sm hover:shadow-md group">
             <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">🎁</div>
-            <h3 className="text-xl font-bold text-white mb-2">AWINA Seserahan</h3>
-            <p className="text-gray-400 text-sm mb-6">Hantaran & mahar pernikahan eksklusif hias akrilik.</p>
-            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+            <h3 className="text-xl font-bold text-[#1C1917] mb-2">AWINA Seserahan</h3>
+            <p className="text-[#78716C] text-sm mb-6">Hantaran & mahar pernikahan eksklusif hias akrilik.</p>
+            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-bold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
           </motion.div>
 
-          <motion.div variants={itemFadeUp} className="bg-[#141414] border border-gray-800 hover:border-[#D91A2A]/50 rounded-2xl p-6 transition group">
+          <motion.div variants={itemFadeUp} className="bg-white border border-[#E7E2D8] hover:border-[#D91A2A] rounded-2xl p-6 transition shadow-sm hover:shadow-md group">
             <div className="w-12 h-12 rounded-xl bg-[#D91A2A]/10 flex items-center justify-center text-[#D91A2A] mb-6 text-2xl">🎗️</div>
-            <h3 className="text-xl font-bold text-white mb-2">AWINA Board & Tribute</h3>
-            <p className="text-gray-400 text-sm mb-6">Karangan bunga & papan ucapan premium untuk segala momen.</p>
-            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
+            <h3 className="text-xl font-bold text-[#1C1917] mb-2">AWINA Board & Tribute</h3>
+            <p className="text-[#78716C] text-sm mb-6">Karangan bunga & papan ucapan premium untuk segala momen.</p>
+            <a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="text-[#D91A2A] text-sm font-bold inline-flex items-center gap-1 group-hover:translate-x-1 transition">Lihat Detail &rarr;</a>
           </motion.div>
         </motion.div>
       </section>
 
       {/* 5. KATALOG PILIHAN */}
-      <section id="catalog" className="py-20 px-6 max-w-7xl mx-auto border-t border-gray-900">
+      <section id="catalog" className="py-20 px-6 max-w-7xl mx-auto border-t border-[#E7E2D8]">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div>
             <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-2">Belanja Online</h2>
-            <p className="text-3xl font-bold text-white">Katalog Produk Pilihan</p>
+            <p className="text-3xl font-bold text-[#1C1917]">Katalog Produk Pilihan</p>
           </div>
-          <div className="flex flex-wrap gap-2 bg-[#141414] p-1.5 rounded-xl border border-gray-800">
+          <div className="flex flex-wrap gap-2 bg-white p-1.5 rounded-xl border border-[#E7E2D8] shadow-sm">
             {['all', 'florist', 'studio', 'seserahan', 'board'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`px-4 py-2 rounded-lg text-xs font-bold uppercase transition ${
-                  activeTab === tab ? 'bg-[#D91A2A] text-white' : 'text-gray-400 hover:text-white'
+                  activeTab === tab ? 'bg-[#D91A2A] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
                 }`}>
                 {tab}
               </button>
@@ -417,22 +411,22 @@ export default function Home() {
             transition={{ duration: 0.3 }}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredProducts.map((p) => (
-              <div key={p.id} className="bg-[#141414] border border-gray-800 rounded-2xl overflow-hidden hover:border-[#D91A2A]/50 transition flex flex-col justify-between">
-                <div className="h-48 relative bg-gray-900 overflow-hidden">
+              <div key={p.id} className="bg-white border border-[#E7E2D8] rounded-2xl overflow-hidden hover:border-[#D91A2A] transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                <div className="h-48 relative bg-[#F5F2EB] overflow-hidden">
                   <img src={p.img} alt={p.name} className="w-full h-full object-cover hover:scale-105 transition duration-500" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-white font-bold text-base mb-1">{p.name}</h3>
-                    <p className="text-gray-400 text-xs mb-4">{p.desc}</p>
+                    <h3 className="text-[#1C1917] font-bold text-base mb-1">{p.name}</h3>
+                    <p className="text-[#78716C] text-xs mb-4">{p.desc}</p>
                   </div>
                   <div>
-                    <p className="text-[#D91A2A] font-bold text-base mb-3">Rp {p.price.toLocaleString('id-ID')}</p>
+                    <p className="text-[#D91A2A] font-extrabold text-base mb-3">Rp {p.price.toLocaleString('id-ID')}</p>
                     <motion.button 
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => addToCart(p)}
-                      className="w-full bg-[#1F1F1F] hover:bg-[#D91A2A] text-white border border-gray-700 py-2.5 rounded-xl text-xs font-semibold transition">
+                      className="w-full bg-[#F5F2EB] hover:bg-[#D91A2A] text-[#1C1917] hover:text-white border border-[#E7E2D8] py-2.5 rounded-xl text-xs font-bold transition">
                       + Tambah Keranjang
                     </motion.button>
                   </div>
@@ -444,11 +438,11 @@ export default function Home() {
       </section>
 
       {/* 6. FOOTER */}
-      <footer id="contact" className="bg-black py-12 px-6 border-t border-gray-900 text-gray-400 text-sm">
+      <footer id="contact" className="bg-[#1C1917] py-12 px-6 border-t border-[#2D2825] text-gray-300 text-sm">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full border border-[#D91A2A]/40 overflow-hidden bg-black flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full border border-[#D91A2A]/40 overflow-hidden bg-white flex items-center justify-center">
                 <img 
                   src="/logo.jpg" 
                   alt="AWINA Group Logo" 
@@ -466,15 +460,15 @@ export default function Home() {
                 <span className="text-[#D91A2A] ml-2 font-bold">Group</span>
               </span>
             </div>
-            <p className="text-xs text-gray-500">Layanan premium floral, studio foto, seserahan, & karangan bunga se-Sumbawa sejak 2016.</p>
+            <p className="text-xs text-gray-400">Layanan premium floral, studio foto, seserahan, & karangan bunga se-Sumbawa sejak 2016.</p>
           </div>
           <div>
             <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider">Tautan Cepat</h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="hover:text-white">Home</a></li>
-              <li><a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-white">About</a></li>
-              <li><a href="#services" onClick={(e) => scrollToSection(e, 'services')} className="hover:text-white">Services</a></li>
-              <li><a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="hover:text-white">Catalog</a></li>
+              <li><a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="hover:text-white transition">Home</a></li>
+              <li><a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-white transition">About</a></li>
+              <li><a href="#services" onClick={(e) => scrollToSection(e, 'services')} className="hover:text-white transition">Services</a></li>
+              <li><a href="#catalog" onClick={(e) => scrollToSection(e, 'catalog')} className="hover:text-white transition">Catalog</a></li>
             </ul>
           </div>
           <div>
@@ -502,10 +496,10 @@ export default function Home() {
           </div>
           <div>
             <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider">Jam Operasional</h4>
-            <p className="text-xs">Senin - Minggu: 08.00 - 22.00 WITA</p>
+            <p className="text-xs text-gray-400">Senin - Minggu: 08.00 - 22.00 WITA</p>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-gray-900 text-center text-xs text-gray-600">
+        <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-[#2D2825] text-center text-xs text-gray-500">
           © 2026 AWINA Group. All rights reserved.
         </div>
       </footer>
@@ -517,33 +511,33 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-end">
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex justify-end">
             <motion.div 
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="bg-[#141414] w-full max-w-md h-full p-6 flex flex-col justify-between border-l border-gray-800">
+              className="bg-[#FDFBF7] w-full max-w-md h-full p-6 flex flex-col justify-between border-l border-[#E7E2D8] shadow-2xl">
               <div>
-                <div className="flex items-center justify-between pb-4 border-b border-gray-800">
-                  <h3 className="text-xl font-bold text-white">🛒 Keranjang Belanja</h3>
-                  <button onClick={() => setIsCartOpen(false)} className="text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
+                <div className="flex items-center justify-between pb-4 border-b border-[#E7E2D8]">
+                  <h3 className="text-xl font-bold text-[#1C1917]">🛒 Keranjang Belanja</h3>
+                  <button onClick={() => setIsCartOpen(false)} className="text-[#78716C] hover:text-[#1C1917] text-2xl font-bold">&times;</button>
                 </div>
 
                 <div className="py-4 space-y-3 max-h-[40vh] overflow-y-auto">
                   {cart.length === 0 ? (
-                    <p className="text-gray-500 text-center py-6 text-sm">Keranjang Anda masih kosong.</p>
+                    <p className="text-[#78716C] text-center py-6 text-sm">Keranjang Anda masih kosong.</p>
                   ) : (
                     cart.map((item) => (
-                      <div key={item.id} className="flex items-center justify-between bg-[#1F1F1F] p-3 rounded-xl">
+                      <div key={item.id} className="flex items-center justify-between bg-white p-3 rounded-xl border border-[#E7E2D8]">
                         <div>
-                          <p className="text-white text-sm font-semibold">{item.name}</p>
+                          <p className="text-[#1C1917] text-sm font-semibold">{item.name}</p>
                           <p className="text-[#D91A2A] text-xs font-bold">Rp {(item.price * item.qty).toLocaleString('id-ID')}</p>
                         </div>
                         <div className="flex items-center gap-2">
-                          <button onClick={() => changeQty(item.id, -1)} className="w-6 h-6 bg-gray-800 text-white rounded font-bold text-xs">-</button>
-                          <span className="text-white text-xs">{item.qty}</span>
-                          <button onClick={() => changeQty(item.id, 1)} className="w-6 h-6 bg-gray-800 text-white rounded font-bold text-xs">+</button>
+                          <button onClick={() => changeQty(item.id, -1)} className="w-6 h-6 bg-[#F5F2EB] text-[#1C1917] rounded font-bold text-xs border border-[#E7E2D8]">-</button>
+                          <span className="text-[#1C1917] text-xs font-semibold">{item.qty}</span>
+                          <button onClick={() => changeQty(item.id, 1)} className="w-6 h-6 bg-[#F5F2EB] text-[#1C1917] rounded font-bold text-xs border border-[#E7E2D8]">+</button>
                         </div>
                       </div>
                     ))
@@ -551,21 +545,20 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="border-t border-gray-800 pt-4 space-y-4">
+              <div className="border-t border-[#E7E2D8] pt-4 space-y-4">
                 
-                {/* PILIHAN ONGKIR OTOMATIS */}
                 {isOnlyStudioService ? (
-                  <div className="p-3 bg-[#1F1F1F] rounded-xl border border-gray-700/60 text-xs text-green-400 flex items-center gap-2">
+                  <div className="p-3 bg-[#F5F2EB] rounded-xl border border-[#E7E2D8] text-xs text-emerald-700 flex items-center gap-2">
                     <span>📷</span>
                     <span><strong>Sesi Foto Studio:</strong> Tanpa Pengiriman / Bebas Ongkir (Langsung Datang ke Studio).</span>
                   </div>
                 ) : (
                   <div>
-                    <label className="block text-xs text-gray-400 mb-1">Wilayah Pengiriman</label>
+                    <label className="block text-xs text-[#78716C] font-medium mb-1">Wilayah Pengiriman</label>
                     <select 
                       value={selectedArea} 
                       onChange={(e) => setSelectedArea(e.target.value)}
-                      className="w-full bg-[#1F1F1F] border border-gray-700 text-white text-sm rounded-lg p-2.5 outline-none">
+                      className="w-full bg-white border border-[#E7E2D8] text-[#1C1917] text-sm rounded-lg p-2.5 outline-none">
                       <option value="0">Pilih Area Pengiriman...</option>
                       <option value="25000">Kota Sumbawa Besar (+Rp 25.000)</option>
                     </select>
@@ -576,15 +569,15 @@ export default function Home() {
                   value={notes} 
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="Catatan/Ucapan tambahan..." 
-                  className="w-full bg-[#1F1F1F] border border-gray-700 text-white text-sm rounded-lg p-2.5 outline-none" rows="2" />
+                  className="w-full bg-white border border-[#E7E2D8] text-[#1C1917] text-sm rounded-lg p-2.5 outline-none" rows="2" />
 
-                <div className="space-y-1 text-sm border-t border-gray-800 pt-3">
-                  <div className="flex justify-between text-gray-400"><span>Subtotal:</span><span>Rp {subtotal.toLocaleString('id-ID')}</span></div>
-                  <div className="flex justify-between text-gray-400">
+                <div className="space-y-1 text-sm border-t border-[#E7E2D8] pt-3">
+                  <div className="flex justify-between text-[#78716C]"><span>Subtotal:</span><span>Rp {subtotal.toLocaleString('id-ID')}</span></div>
+                  <div className="flex justify-between text-[#78716C]">
                     <span>Ongkir:</span>
                     <span>{isOnlyStudioService ? 'Rp 0' : `Rp ${ongkir.toLocaleString('id-ID')}`}</span>
                   </div>
-                  <div className="flex justify-between text-white font-bold text-base pt-2 border-t border-gray-800">
+                  <div className="flex justify-between text-[#1C1917] font-bold text-base pt-2 border-t border-[#E7E2D8]">
                     <span>Total:</span><span className="text-[#D91A2A]">Rp {total.toLocaleString('id-ID')}</span>
                   </div>
                 </div>
@@ -593,7 +586,7 @@ export default function Home() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleCheckout}
-                  className="w-full bg-[#D91A2A] hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition">
+                  className="w-full bg-[#D91A2A] hover:bg-[#B81222] text-white font-bold py-3.5 rounded-xl transition shadow-md shadow-[#D91A2A]/20">
                   Pesan via WhatsApp 💬
                 </motion.button>
               </div>
