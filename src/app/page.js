@@ -132,10 +132,10 @@ export default function Home() {
               />
             </div>
             
-            {/* BRANDING DENGAN SIMBOL A FLORAL EKSKLUSIF */}
+            {/* BRANDING SIMBOL A FLORAL MEMAKAI LOGO-A.JPG */}
             <span className="text-xl font-extrabold tracking-widest text-[#1C1917] uppercase flex items-center select-none">
-              <span className="inline-block h-7 w-6 mr-0.5">
-                <img src="/logo-a.png" alt="A Floral" className="w-full h-full object-contain" />
+              <span className="inline-block h-7 w-8 mr-1">
+                <img src="/logo-a.jpg" alt="A Floral" className="w-full h-full object-contain mix-blend-multiply" />
               </span>
               <span>WINA</span>
               <span className="text-[#D91A2A] ml-2">Group</span>
@@ -258,7 +258,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. ABOUT SECTION WITH HARMONIZED LUXURY MAP CONTAINER */}
+      {/* 3. ABOUT SECTION WITH LUXURY MAP CONTAINER */}
       <motion.section 
         id="about" 
         initial={{ opacity: 0, y: 50 }}
@@ -432,7 +432,7 @@ export default function Home() {
         </AnimatePresence>
       </section>
 
-      {/* 6. FOOTER LENGKAP SOSIAL MEDIA */}
+      {/* 6. FOOTER */}
       <footer id="contact" className="bg-[#1C1917] py-12 px-6 border-t border-[#2D2825] text-gray-300 text-sm">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
           <div>
@@ -446,8 +446,8 @@ export default function Home() {
               </div>
               
               <span className="text-white font-extrabold text-lg uppercase tracking-wider flex items-center select-none">
-                <span className="inline-block h-6 w-5 mr-0.5">
-                  <img src="/logo-a.png" alt="A Floral" className="w-full h-full object-contain filter brightness-200" />
+                <span className="inline-block h-6 w-7 mr-1">
+                  <img src="/logo-a.jpg" alt="A Floral" className="w-full h-full object-contain filter brightness-110" />
                 </span>
                 <span>WINA</span>
                 <span className="text-[#D91A2A] ml-2 font-bold">Group</span>
