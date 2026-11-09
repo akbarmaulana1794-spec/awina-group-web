@@ -124,7 +124,6 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           
           <div className="flex items-center gap-3">
-            {/* LOGO LINGKARAN UTAMA TETAP MEMAKAI LOGO.JPG LAMA */}
             <div className="w-11 h-11 rounded-full border border-[#D91A2A]/30 overflow-hidden bg-white flex items-center justify-center shadow-sm">
               <img 
                 src="/logo.jpg" 
@@ -133,9 +132,9 @@ export default function Home() {
               />
             </div>
             
-            {/* BRANDING SIMBOL A FLORAL MEMAKAI LOGO-A.PNG TRANSPARAN */}
+            {/* BRANDING DENGAN LOGO A MEPET KE TULISAN WINA */}
             <span className="text-xl font-extrabold tracking-widest text-[#1C1917] uppercase flex items-center select-none">
-              <span className="inline-block h-7 w-8 mr-1">
+              <span className="inline-block h-7 w-7 -mr-1">
                 <img src="/logo-a.png" alt="A Floral" className="w-full h-full object-contain" />
               </span>
               <span>WINA</span>
@@ -438,7 +437,6 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              {/* LOGO LINGKARAN FOOTER TETAP MEMAKAI LOGO.JPG LAMA */}
               <div className="w-10 h-10 rounded-full border border-[#D91A2A]/40 overflow-hidden bg-white flex items-center justify-center">
                 <img 
                   src="/logo.jpg" 
@@ -448,7 +446,7 @@ export default function Home() {
               </div>
               
               <span className="text-white font-extrabold text-lg uppercase tracking-wider flex items-center select-none">
-                <span className="inline-block h-6 w-7 mr-1">
+                <span className="inline-block h-6 w-7 -mr-1">
                   <img src="/logo-a.png" alt="A Floral" className="w-full h-full object-contain filter brightness-120" />
                 </span>
                 <span>WINA</span>
