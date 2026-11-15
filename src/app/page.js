@@ -4,10 +4,28 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const initialProducts = [
-  { id: 'FL-001', category: 'florist', name: 'Moyo Rose Hand Bouquet', price: 150000, desc: 'Buket bunga mawar segar dipadu dedaunan estetik.', img: '/florist.jpg' },
-  { id: 'ST-001', category: 'studio', name: 'Paket Foto Graduation', price: 350000, desc: 'Sesi foto indoor 30 menit, cetak 10R + frame, file HD.', img: '/studio.jpg' },
-  { id: 'SE-001', category: 'seserahan', name: 'Sewa & Hias Box Akrilik', price: 75000, desc: 'Sewa baki akrilik bening tebal hias bunga premium.', img: '/seserahan.jpg' },
-  { id: 'BD-001', category: 'board', name: 'Karangan Bunga Papan Standard', price: 300000, desc: 'Papan ucapan selamat/duka cita ukuran 1.2m x 2m.', img: '/board.jpg' }
+  // 1. FLORIST
+  { id: 'FL-001', category: 'florist', sub: 'Fresh Flower Bouquet', name: 'Moyo Rose Fresh Bouquet', price: 150000, desc: 'Buket bunga mawar segar dipadu dedaunan estetik.', img: '/florist.jpg' },
+  { id: 'FL-002', category: 'florist', sub: 'Buket Artificial', name: 'Buket Mawar Artificial Premium', price: 125000, desc: 'Buket bunga tiruan awet tahan lama dengan pita satin.', img: '/florist.jpg' },
+  { id: 'FL-003', category: 'florist', sub: 'Bloombox', name: 'Bloombox Fresh & Artificial Mixed', price: 220000, desc: 'Rangkaian bunga elegan dalam kotak eksklusif AWINA.', img: '/florist.jpg' },
+  { id: 'FL-004', category: 'florist', sub: 'Parcel', name: 'Parcel Bunga & Hadiah Momen Spesial', price: 300000, desc: 'Kombinasi bunga cantik dengan pilihan snack/gift.', img: '/florist.jpg' },
+
+  // 2. BOARD & TRIBUTE
+  { id: 'BD-001', category: 'board', sub: 'Papan Ucapan Fresh Flower', name: 'Karangan Bunga Papan Fresh Flower', price: 300000, desc: 'Papan ucapan selamat/duka cita ukuran 1.2m x 2m bunga segar.', img: '/board.jpg' },
+  { id: 'BD-002', category: 'board', sub: 'Papan Ucapan Artificial', name: 'Karangan Bunga Papan Artificial', price: 275000, desc: 'Papan ucapan berbahan bunga awet tahan cuaca.', img: '/board.jpg' },
+  { id: 'BD-003', category: 'board', sub: 'Papan Akrilik', name: 'Papan Akrilik Ucapan Modern', price: 250000, desc: 'Standing board akrilik bening transparan estetik.', img: '/board.jpg' },
+  { id: 'BD-004', category: 'board', sub: 'Papan Bulat / Standing', name: 'Standing Board Round Frame', price: 350000, desc: 'Papan bunga bentuk bulat melingkar berdesain mewah.', img: '/board.jpg' },
+  { id: 'BD-005', category: 'board', sub: 'Plakat Custom', name: 'Plakat Akrilik Made by Request', price: 175000, desc: 'Plakat penghargaan dan kenang-kenangan custom.', img: '/board.jpg' },
+
+  // 3. SESERAHAN & WEDDING
+  { id: 'SE-001', category: 'seserahan', sub: 'Box Seserahan', name: 'Sewa & Hias Box Akrilik Seserahan', price: 75000, desc: 'Sewa baki akrilik bening tebal hias bunga premium.', img: '/seserahan.jpg' },
+  { id: 'SE-002', category: 'seserahan', sub: 'Bingkai Mahar', name: 'Bingkai Mahar Pernikahan Exclusive', price: 350000, desc: 'Hiasan mahar uang/logam mulia dalam bingkai 3D.', img: '/seserahan.jpg' },
+  { id: 'SE-003', category: 'seserahan', sub: 'Dekorasi Momen', name: 'Paket Dekorasi Hantaran & Lamaran', price: 500000, desc: 'Penataan dan dekorasi lengkap sudut hantaran.', img: '/seserahan.jpg' },
+  { id: 'SE-004', category: 'seserahan', sub: 'Hias Mobil Pengantin', name: 'Penyewaan & Hiasan Mobil Pengantin', price: 200000, desc: 'Rangkaian bunga segar/artificial khusus kap mobil pengantin.', img: '/seserahan.jpg' },
+
+  // 4. PHOTO STUDIO
+  { id: 'ST-001', category: 'studio', sub: 'Mini Studio Photoshoot', name: 'Paket Foto Graduation / Wisuda', price: 350000, desc: 'Sesi foto indoor 30 menit, cetak 10R + frame, file HD.', img: '/studio.jpg' },
+  { id: 'ST-002', category: 'studio', sub: 'Mini Studio Photoshoot', name: 'Paket Foto Prewedding / Portrait', price: 450000, desc: 'Sesi studio foto berstandar sinematik lighting.', img: '/studio.jpg' }
 ];
 
 const containerStagger = {
@@ -116,6 +134,14 @@ export default function Home() {
     { id: 'contact', label: 'Contact' },
   ];
 
+  const categories = [
+    { id: 'all', label: 'Semua Produk' },
+    { id: 'florist', label: 'Florist' },
+    { id: 'board', label: 'Board & Tribute' },
+    { id: 'seserahan', label: 'Seserahan & Wedding' },
+    { id: 'studio', label: 'Photo Studio' }
+  ];
+
   return (
     <main className="bg-[#FDFBF7] text-[#1C1917] min-h-screen font-sans selection:bg-[#D91A2A] selection:text-white scroll-smooth overflow-x-hidden">
       
@@ -132,7 +158,6 @@ export default function Home() {
               />
             </div>
             
-            {/* BRANDING DENGAN LOGO A MEPET KE TULISAN WINA */}
             <span className="text-xl font-extrabold tracking-widest text-[#1C1917] uppercase flex items-center select-none">
               <span className="inline-block h-7 w-7 -mr-1">
                 <img src="/logo-a.png" alt="A Floral" className="w-full h-full object-contain" />
@@ -376,22 +401,22 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 5. KATALOG PILIHAN */}
+      {/* 5. KATALOG PILIHAN DENGAN SUB-TAG KATEGORI RAPI */}
       <section id="catalog" className="py-20 px-6 max-w-7xl mx-auto border-t border-[#E7E2D8]">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div>
             <h2 className="text-xs font-bold text-[#D91A2A] uppercase tracking-widest mb-2">Belanja Online</h2>
-            <p className="text-3xl font-bold text-[#1C1917]">Katalog Produk Pilihan</p>
+            <p className="text-3xl font-bold text-[#1C1917]">Katalog Produk Terstruktur</p>
           </div>
           <div className="flex flex-wrap gap-2 bg-white p-1.5 rounded-xl border border-[#E7E2D8] shadow-sm">
-            {['all', 'florist', 'studio', 'seserahan', 'board'].map((tab) => (
+            {categories.map((cat) => (
               <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
+                key={cat.id}
+                onClick={() => setActiveTab(cat.id)}
                 className={`px-4 py-2 rounded-lg text-xs font-bold uppercase transition ${
-                  activeTab === tab ? 'bg-[#D91A2A] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
+                  activeTab === cat.id ? 'bg-[#D91A2A] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
                 }`}>
-                {tab}
+                {cat.label}
               </button>
             ))}
           </div>
@@ -409,6 +434,9 @@ export default function Home() {
               <div key={p.id} className="bg-white border border-[#E7E2D8] rounded-2xl overflow-hidden hover:border-[#D91A2A] transition shadow-sm hover:shadow-md flex flex-col justify-between">
                 <div className="h-48 relative bg-[#F5F2EB] overflow-hidden">
                   <img src={p.img} alt={p.name} className="w-full h-full object-cover hover:scale-105 transition duration-500" />
+                  <span className="absolute top-3 left-3 bg-[#1C1917]/80 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                    {p.sub}
+                  </span>
                 </div>
                 <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
